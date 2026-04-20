@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pomodoro – Authentisch Italienisch</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Palanquin:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">POMODORO</a>
+      <nav class="header-nav">
+        <a href="#menu">Speisekarte</a>
+        <a href="#info">Info</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero-section">
+    <img
+      src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1440&q=80"
+      alt="Pomodoro Restaurant"
+      class="hero-image"
+    />
+    <div class="restaurant-logo-badge">P</div>
+  </div>
+
+  <section id="info" class="restaurant-info">
+    <div class="restaurant-info-inner">
+      <h1 class="restaurant-name">Pomodoro</h1>
+      <div class="restaurant-stars">
+        <span class="stars" aria-label="4.8 von 5 Sternen">★★★★★</span>
+        <span class="rating-text">4.8 (234 Bewertungen)</span>
+      </div>
+      <p class="restaurant-description">
+        Authentische italienische Küche aus dem Herzen Roms – frische Zutaten,
+        traditionelle Rezepte, unvergleichlicher Geschmack.
+      </p>
+      <div class="restaurant-details">
+        <span class="detail-chip">🕐 25–40 Min.</span>
+        <span class="detail-chip">🛵 2,49&nbsp;€ Lieferkosten</span>
+        <span class="detail-chip">🧾 Mind. 12,00&nbsp;€</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="main-layout">
+    <main class="menu-main" id="menu">
+      <nav class="category-slider" id="category-nav" aria-label="Speisekategorien"></nav>
+      <div id="menu-container"></div>
+    </main>
+    <aside class="cart-wrapper">
+      <div class="cart-desktop" id="cart-desktop"></div>
+    </aside>
+  </div>
+
+  <button type="button" class="mobile-cart-btn" id="mobile-cart-btn" onclick="openMobileCart()">
+    🛒 <span id="mobile-cart-count">0</span> Artikel &middot;
+    <span id="mobile-cart-total">0,00&nbsp;€</span>
+  </button>
+
+  <dialog class="mobile-cart-dialog" id="mobile-cart-dialog">
+    <div class="dialog-header">
+      <h2>Warenkorb</h2>
+      <button type="button" class="dialog-close-btn" onclick="closeMobileCart()" aria-label="Schließen">✕</button>
+    </div>
+    <div id="cart-mobile-inner"></div>
+  </dialog>
+
+  <div class="order-confirmation hidden" id="order-confirmation">
+    <div class="confirmation-card">
+      <span class="confirmation-icon">🎉</span>
+      <div>
+        <h3>Testbestellung aufgegeben!</h3>
+        <p>Deine Bestellung wird bearbeitet. Danke bei Pomodoro!</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-logo">POMODORO</span>
+      <p class="footer-text">© 2025 Pomodoro &middot; Alle Rechte vorbehalten</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
