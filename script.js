@@ -287,9 +287,11 @@ function syncAddButtons() {
 }
 
 function showOrderConfirmation() {
-  const el = document.getElementById('order-confirmation');
-  el.classList.remove('hidden');
-  setTimeout(() => el.classList.add('hidden'), 5000);
+  document.getElementById('order-confirmation').classList.remove('hidden');
+}
+
+function closeOrderConfirmation() {
+  document.getElementById('order-confirmation').classList.add('hidden');
 }
 
 function toggleMobileNav() {
