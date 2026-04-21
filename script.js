@@ -94,8 +94,12 @@ function renderCategorySection(cat) {
 }
 
 function renderDishCard(dish) {
+  const imageHTML = dish.image
+    ? `<img class="dish-image" src="${dish.image}" alt="${dish.name}" loading="lazy" />`
+    : '';
   return `
     <div class="dish-card">
+      ${imageHTML}
       <div class="dish-content">
         <div class="dish-info">
           <div class="dish-top-row">
@@ -104,7 +108,7 @@ function renderDishCard(dish) {
           </div>
           <p class="dish-description">${dish.description}</p>
         </div>
-        <button type="button" class="add-btn" onclick="addToCart(${dish.id})" aria-label="${dish.name} hinzufügen">Add</button>
+        <button type="button" class="add-btn" data-id="${dish.id}" onclick="addToCart(${dish.id})" aria-label="${dish.name} hinzufügen">Add to basket</button>
       </div>
     </div>
   `.trim();
@@ -265,6 +269,21 @@ function updateCartUI() {
   btn.style.display = count > 0 ? 'flex' : 'none';
   const badge = document.getElementById('header-cart-badge');
   if (badge) badge.textContent = count;
+  syncAddButtons();
+}
+
+function syncAddButtons() {
+  document.querySelectorAll('.add-btn[data-id]').forEach(btn => {
+    const id = parseInt(btn.dataset.id, 10);
+    const qty = cart[id] ? cart[id].quantity : 0;
+    if (qty > 0) {
+      btn.textContent = `Added ${qty}`;
+      btn.classList.add('add-btn--added');
+    } else {
+      btn.textContent = 'Add to basket';
+      btn.classList.remove('add-btn--added');
+    }
+  });
 }
 
 function showOrderConfirmation() {
