@@ -330,142 +330,132 @@ body {
   border-bottom-color: var(--color-accent);
 }
 
-/* ===== CATEGORY BANNER ===== */
-.category-banner {
-  width: 100%;
-  height: 160px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  margin-top: 28px;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.category-banner-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.1) 70%);
-  display: flex;
-  align-items: center;
-  padding: 0 32px;
-}
-
-.category-banner-title {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--color-white);
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-}
-
 /* ===== DISH SECTION ===== */
 .dish-section {
   scroll-margin-top: calc(var(--header-height) + var(--category-nav-height));
-  padding-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-/* ===== DISH GRID ===== */
-.dish-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+.category-heading {
+  font-family: 'Palanquin Dark', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 120%;
+  color: #5E5E5D;
+}
+
+/* ===== DISH LIST ===== */
+.dish-list {
+  display: flex;
+  flex-direction: column;
   gap: 16px;
-  padding: 16px 0 24px;
 }
 
 /* ===== DISH CARD ===== */
 .dish-card {
-  background: var(--color-white);
+  background: #EEEDEB;
   border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--color-border);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  gap: 15px;
   display: flex;
-  flex-direction: column;
-  transition: box-shadow 0.2s, transform 0.2s;
+  flex-direction: row;
+  align-items: center;
+  transition: box-shadow 0.2s;
 }
 
 .dish-card:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
-}
-
-.dish-image-wrapper {
-  width: 100%;
-  height: 160px;
-  overflow: hidden;
-  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
 
 .dish-image {
-  width: 100%;
-  height: 100%;
+  width: 207px;
+  height: 121px;
+  border-radius: 12px;
   object-fit: cover;
   display: block;
-  transition: transform 0.35s;
+  flex-shrink: 0;
 }
 
-.dish-card:hover .dish-image {
-  transform: scale(1.06);
-}
-
-.dish-body {
-  padding: 14px 16px 16px;
+.dish-content {
   flex: 1;
+  height: 121px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.dish-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dish-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .dish-name {
-  font-size: 15px;
+  font-family: 'Palanquin', sans-serif;
   font-weight: 600;
-  margin-bottom: 6px;
-  line-height: 1.3;
-}
-
-.dish-description {
-  font-size: 13px;
-  color: var(--color-text-secondary);
-  line-height: 1.5;
+  font-size: 24px;
+  line-height: 100%;
+  color: #363534;
   flex: 1;
-  margin-bottom: 14px;
-}
-
-.dish-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: auto;
 }
 
 .dish-price {
-  font-size: 16px;
-  font-weight: 700;
+  font-family: 'Palanquin', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 120%;
+  color: #363534;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.dish-description {
+  font-family: 'Palanquin', sans-serif;
+  font-size: 14px;
+  color: #363534;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .add-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--color-accent);
-  color: var(--color-white);
+  align-self: flex-start;
+  height: 29px;
+  padding: 5px 8px;
+  border-radius: 20px;
+  background: #FFFFFF;
+  color: #363534;
   border: none;
-  font-size: 24px;
-  line-height: 1;
+  font-family: 'Palanquin', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
-  transition: background 0.2s, transform 0.15s;
+  gap: 8px;
+  transition: background 0.2s, box-shadow 0.2s;
   flex-shrink: 0;
 }
 
 .add-btn:hover {
-  background: #c73820;
-  transform: scale(1.1);
+  background: #F0EFED;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .add-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.97);
 }
 
 /* ===== CART WRAPPER (DESKTOP) ===== */
@@ -944,10 +934,6 @@ body {
   :root {
     --cart-width: 320px;
   }
-
-  .dish-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* ===== RESPONSIVE – MOBILE ===== */
@@ -1049,26 +1035,18 @@ body {
 }
 
 @media (max-width: 480px) {
-  .category-banner {
-    height: 120px;
-    border-radius: 8px;
+  .category-heading {
+    font-size: 32px;
   }
 
-  .category-banner-title {
-    font-size: 22px;
+  .dish-image {
+    width: 120px;
+    height: 90px;
   }
 
-  .dish-image-wrapper {
-    height: 140px;
-  }
-
-  .restaurant-details {
-    gap: 8px;
-  }
-
-  .detail-chip {
-    font-size: 12px;
-    padding: 5px 10px;
+  .dish-name,
+  .dish-price {
+    font-size: 18px;
   }
 }
 

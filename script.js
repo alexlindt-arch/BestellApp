@@ -83,23 +83,10 @@ function renderMenuSections() {
 }
 
 function renderCategorySection(cat) {
-  return renderCategoryBanner(cat) + renderDishGrid(cat);
-}
-
-function renderCategoryBanner(cat) {
-  return `
-    <div class="category-banner" style="background-image:url('${cat.image}')">
-      <div class="category-banner-overlay">
-        <h2 class="category-banner-title">${cat.name}</h2>
-      </div>
-    </div>
-  `.trim();
-}
-
-function renderDishGrid(cat) {
   return `
     <section id="cat-${cat.id}" class="dish-section">
-      <div class="dish-grid">
+      <h2 class="category-heading">${cat.name}</h2>
+      <div class="dish-list">
         ${cat.items.map(renderDishCard).join('')}
       </div>
     </section>
@@ -109,28 +96,16 @@ function renderDishGrid(cat) {
 function renderDishCard(dish) {
   return `
     <div class="dish-card">
-      ${renderDishImageWrapper(dish)}
-      ${renderDishBody(dish)}
-    </div>
-  `.trim();
-}
-
-function renderDishImageWrapper(dish) {
-  return `
-    <div class="dish-image-wrapper">
       <img src="${dish.image}" alt="${dish.name}" class="dish-image" loading="lazy" />
-    </div>
-  `.trim();
-}
-
-function renderDishBody(dish) {
-  return `
-    <div class="dish-body">
-      <h3 class="dish-name">${dish.name}</h3>
-      <p class="dish-description">${dish.description}</p>
-      <div class="dish-footer">
-        <span class="dish-price">${formatPrice(dish.price)}</span>
-        <button type="button" class="add-btn" onclick="addToCart(${dish.id})" aria-label="${dish.name} hinzufügen">+</button>
+      <div class="dish-content">
+        <div class="dish-info">
+          <div class="dish-top-row">
+            <span class="dish-name">${dish.name}</span>
+            <span class="dish-price">${formatPrice(dish.price)}</span>
+          </div>
+          <p class="dish-description">${dish.description}</p>
+        </div>
+        <button type="button" class="add-btn" onclick="addToCart(${dish.id})" aria-label="${dish.name} hinzufügen">Add</button>
       </div>
     </div>
   `.trim();
