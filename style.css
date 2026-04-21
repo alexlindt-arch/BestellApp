@@ -358,10 +358,9 @@ body {
   background: #EEEDEB;
   border-radius: 12px;
   padding: 10px;
-  gap: 15px;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: stretch;
   transition: box-shadow 0.2s;
 }
 
@@ -369,18 +368,9 @@ body {
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
 
-.dish-image {
-  width: 207px;
-  height: 121px;
-  border-radius: 12px;
-  object-fit: cover;
-  display: block;
-  flex-shrink: 0;
-}
-
 .dish-content {
-  flex: 1;
-  height: 121px;
+  width: 100%;
+  min-height: 121px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -420,9 +410,10 @@ body {
 
 .dish-description {
   font-family: 'Palanquin', sans-serif;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
   color: #363534;
-  line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

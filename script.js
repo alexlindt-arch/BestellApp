@@ -96,7 +96,6 @@ function renderCategorySection(cat) {
 function renderDishCard(dish) {
   return `
     <div class="dish-card">
-      <img src="${dish.image}" alt="${dish.name}" class="dish-image" loading="lazy" />
       <div class="dish-content">
         <div class="dish-info">
           <div class="dish-top-row">
