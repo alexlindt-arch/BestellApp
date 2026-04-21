@@ -599,7 +599,7 @@ body {
 .cart-qty-controls {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 0;
 }
 
 .qty-btn-new {
@@ -628,8 +628,20 @@ body {
   font-size: 24px;
   line-height: 120%;
   color: #363534;
-  min-width: 16px;
+  width: 16px;
   text-align: center;
+}
+
+.cart-item-price {
+  font-family: 'Palanquin', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 120%;
+  color: #726D6D;
+  width: 64px;
+  text-align: right;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* ===== CART FOOTER ===== */

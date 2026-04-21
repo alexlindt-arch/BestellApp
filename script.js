@@ -165,6 +165,11 @@ function buildCartList(items) {
 
 function buildCartItem(entry) {
   const { dish, quantity } = entry;
+  const leftControl = quantity === 1
+    ? `<button type="button" class="cart-item-delete" onclick="removeFromCart(${dish.id})" aria-label="${dish.name} löschen">
+        <svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M1 4h14M6 4V2h4v2M2 4l1 12h10L14 4" stroke="#363534" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+       </button>`
+    : `<button type="button" class="qty-btn-new" onclick="updateQuantity(${dish.id}, -1)" aria-label="Weniger">−</button>`;
   return `
     <li class="cart-item">
       <div class="cart-item-top">
@@ -174,14 +179,12 @@ function buildCartItem(entry) {
         </button>
       </div>
       <div class="cart-item-bottom">
-        <button type="button" class="cart-item-delete" onclick="removeFromCart(${dish.id})" aria-label="${dish.name} löschen">
-          <svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M1 4h14M6 4V2h4v2M2 4l1 12h10L14 4" stroke="#363534" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
+        ${leftControl}
         <div class="cart-qty-controls">
-          <button type="button" class="qty-btn-new" onclick="updateQuantity(${dish.id}, -1)" aria-label="Weniger">−</button>
           <span class="qty-display-new">${quantity}</span>
           <button type="button" class="qty-btn-new" onclick="updateQuantity(${dish.id}, 1)" aria-label="Mehr">+</button>
         </div>
+        <span class="cart-item-price">${formatPrice(dish.price * quantity)}</span>
       </div>
     </li>
   `.trim();
