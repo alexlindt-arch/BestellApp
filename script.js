@@ -268,6 +268,8 @@ function updateCartUI() {
   document.getElementById('mobile-cart-total').textContent = formatPrice(total);
   const btn = document.getElementById('mobile-cart-btn');
   btn.style.display = count > 0 ? 'flex' : 'none';
+  const badge = document.getElementById('header-cart-badge');
+  if (badge) badge.textContent = count;
 }
 
 function showOrderConfirmation() {
