@@ -278,6 +278,16 @@ function showOrderConfirmation() {
   setTimeout(() => el.classList.add('hidden'), 5000);
 }
 
+function toggleMobileNav() {
+  const nav = document.querySelector('.header-nav');
+  nav.classList.toggle('open');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('menu-toggle-btn');
+  if (toggleBtn) toggleBtn.addEventListener('click', toggleMobileNav);
+});
+
 function openMobileCart() {
   document.getElementById('mobile-cart-dialog').showModal();
 }

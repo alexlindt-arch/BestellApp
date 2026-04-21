@@ -81,6 +81,26 @@ body {
   opacity: 1;
 }
 
+/* ===== HEADER MENU TOGGLE ===== */
+.menu-toggle-btn {
+  display: none;
+  width: 45px;
+  height: 35px;
+  opacity: 1;
+  background: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.menu-toggle-btn:hover {
+  background: #F0F0F0;
+}
+
 /* ===== HEADER CART BUTTON ===== */
 .header-cart-btn {
   position: relative;
@@ -795,6 +815,28 @@ body {
 
   .header-nav {
     display: none;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background: var(--color-header);
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 199;
+  }
+
+  .header-nav.open {
+    display: flex;
+  }
+
+  .header-nav a {
+    padding: 14px 24px;
+  }
+
+  .menu-toggle-btn {
+    display: flex;
   }
 
   .hero-section {
