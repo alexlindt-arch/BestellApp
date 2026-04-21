@@ -205,12 +205,30 @@ function buildOrderButton(hasItems) {
 function buildCartFooter() {
   const subtotal = getCartTotal();
   const hasItems = Object.keys(cart).length > 0;
-  const total = subtotal + (hasItems ? RESTAURANT.deliveryPrice : 0);
+  const delivery = hasItems ? RESTAURANT.deliveryPrice : 0;
+  const total = subtotal + delivery;
   return `
     <div class="cart-footer">
-      ${buildCartSubtotal(subtotal, hasItems)}
-      <div class="cart-total-row"><span>Gesamt</span><strong>${formatPrice(total)}</strong></div>
-      ${buildOrderButton(hasItems)}
+      <div class="cart-footer-divider"></div>
+      <div class="cart-footer-rows">
+        <div class="cart-footer-summary">
+          <div class="cart-footer-labels">
+            <span class="cart-footer-label">Subtotal</span>
+            <span class="cart-footer-label">Delivery fee</span>
+          </div>
+          <div class="cart-footer-values">
+            <span class="cart-footer-value">${formatPrice(subtotal)}</span>
+            <span class="cart-footer-value">${formatPrice(delivery)}</span>
+          </div>
+        </div>
+        <div class="cart-total-row">
+          <span class="cart-total-label">Total</span>
+          <span class="cart-total-value">${formatPrice(total)}</span>
+        </div>
+        <button type="button" class="order-btn" onclick="placeOrder()" ${!hasItems ? 'disabled' : ''}>
+          Buy now (${formatPrice(total)})
+        </button>
+      </div>
     </div>
   `.trim();
 }
