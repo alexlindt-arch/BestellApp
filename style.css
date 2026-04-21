@@ -200,62 +200,80 @@ body {
 .restaurant-info {
   background: var(--color-white);
   border-bottom: 1px solid var(--color-border);
-  padding: 216px 0 32px;
+  padding: 216px 0 40px;
   scroll-margin-top: var(--header-height);
 }
 
 .restaurant-info-inner {
-  max-width: var(--max-width);
+  width: 872px;
   margin: 0 auto;
-  padding: 0 var(--side-padding);
+}
+
+.ri-row {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  height: 75px;
+  margin-bottom: 0;
 }
 
 .restaurant-name {
-  font-size: 32px;
+  font-family: 'Palanquin Dark', sans-serif;
   font-weight: 700;
-  margin-bottom: 8px;
+  font-size: 48px;
+  line-height: 120%;
+  letter-spacing: 0;
+  color: #5E5E5D;
+  flex: 1;
 }
 
-.restaurant-stars {
+/* Rating Chip */
+.rating-chip {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 12px;
+  background: #F4F0ED;
+  border-radius: 4px;
+  padding: 4px 5px;
+  height: 32px;
+  flex-shrink: 0;
 }
 
-.stars {
-  color: var(--color-star);
+.rating-star-icon {
+  flex-shrink: 0;
+}
+
+.rating-text-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rating-score {
+  font-family: 'Palanquin Dark', sans-serif;
+  font-weight: 400;
   font-size: 20px;
-  letter-spacing: 2px;
+  line-height: 120%;
+  color: #363534;
 }
 
-.rating-text {
-  color: var(--color-text-secondary);
-  font-size: 14px;
+.rating-count {
+  font-family: 'Palanquin', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  color: #726D6D;
 }
 
 .restaurant-description {
-  color: var(--color-text-secondary);
-  font-size: 15px;
-  max-width: 600px;
-  line-height: 1.7;
-  margin-bottom: 20px;
-}
-
-.restaurant-details {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.detail-chip {
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: 20px;
-  padding: 6px 14px;
-  font-size: 13px;
-  font-weight: 500;
-  white-space: nowrap;
+  font-family: 'Palanquin', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 120%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #363534;
+  width: 872px;
 }
 
 /* ===== MAIN LAYOUT ===== */
@@ -874,11 +892,16 @@ body {
   }
 
   .restaurant-info-inner {
+    width: 100%;
     padding: 0 24px;
   }
 
+  .restaurant-description {
+    width: 100%;
+  }
+
   .restaurant-name {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .cart-wrapper {
