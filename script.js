@@ -10,46 +10,33 @@ const RESTAURANT = {
 
 const MENU_DATA = [
   {
-    id: 'vorspeisen',
-    name: 'Vorspeisen',
-    image: 'https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?auto=format&fit=crop&w=1200&q=80',
+    id: 'burger',
+    name: 'Burger & Sandwiches',
     items: [
-      { id: 1, name: 'Bruschetta al Pomodoro', description: 'Geröstetes Ciabatta mit frischen Tomaten, Knoblauch und Basilikum', price: 5.99, image: 'https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?auto=format&fit=crop&w=400&q=80' },
-      { id: 2, name: 'Caprese Classico', description: 'Büffelmozzarella, reife Tomaten, Basilikum und kaltgepresstes Olivenöl', price: 7.99, image: 'https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=400&q=80' },
-      { id: 3, name: 'Zuppa del Giorno', description: 'Hausgemachte Tagessuppe nach Empfehlung des Küchenchefs', price: 4.99, image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=400&q=80' },
-      { id: 4, name: 'Antipasto Misto', description: 'Gemischte Vorspeiseplatte mit Oliven, Käse, Aufschnitt und Grillgemüse', price: 9.99, image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=80' },
+      { id: 1, name: 'Classic Burger', description: 'Beef-Patty, Cheddar, Salat, Tomate, Zwiebeln und hausgemachte Sauce', price: 13.90, image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80' },
+      { id: 2, name: 'Veggie Mushroom Burger', description: 'Veggie-Patty mit gegrillten Champignons, Spinat und Senf-Dip', price: 12.90, image: 'https://images.unsplash.com/photo-1520072959219-c8f8fe30b5c0?auto=format&fit=crop&w=400&q=80' },
+      { id: 3, name: 'BBQ Cheese Burger', description: 'Doppeltes Beef-Patty, BBQ-Sauce, Bacon, Cheddar und Jalapeños', price: 15.90, image: 'https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=400&q=80' },
+      { id: 4, name: 'Double Smash Burger', description: 'Zwei dünne Smash-Patties, American Cheese, Pickles und spezielle Burgersauce', price: 16.90, image: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=400&q=80' },
     ],
   },
   {
     id: 'pizza',
-    name: 'Pizza',
-    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80',
+    name: 'Pizza (30cm)',
     items: [
-      { id: 5, name: 'Margherita', description: 'Tomatensauce, Mozzarella fior di latte, frisches Basilikum', price: 8.99, image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=400&q=80' },
-      { id: 6, name: 'Diavola', description: 'Tomatensauce, Mozzarella, scharfe Salami, Chili', price: 10.99, image: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=400&q=80' },
-      { id: 7, name: 'Quattro Formaggi', description: 'Vier-Käse-Pizza: Mozzarella, Gorgonzola, Parmesan, Fontina', price: 11.99, image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=80' },
-      { id: 8, name: 'Prosciutto e Funghi', description: 'Tomatensauce, Mozzarella, Parmaschinken, Champignons', price: 12.49, image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=400&q=80' },
+      { id: 5, name: 'Margherita', description: 'Tomatensauce, Mozzarella fior di latte, frisches Basilikum', price: 11.90, image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=400&q=80' },
+      { id: 6, name: 'Pizza Chorizo', description: 'Tomatensauce, Mozzarella, Chorizo-Scheiben, Chili', price: 13.90, image: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=400&q=80' },
+      { id: 7, name: 'Quattro Formaggi', description: 'Vier-Käse-Pizza: Mozzarella, Gorgonzola, Parmesan, Fontina', price: 13.90, image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=80' },
+      { id: 8, name: 'Pizza Funghi', description: 'Tomatensauce, Mozzarella, gemischte Pilze, frischer Thymian', price: 12.90, image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=400&q=80' },
     ],
   },
   {
-    id: 'pasta',
-    name: 'Pasta',
-    image: 'https://images.unsplash.com/photo-1551183053-bf91798d9738?auto=format&fit=crop&w=1200&q=80',
+    id: 'salat',
+    name: 'Salat',
     items: [
-      { id: 9, name: 'Spaghetti Bolognese', description: 'Hausgemachte Bolognese-Sauce mit Rindfleisch und frischen Kräutern', price: 9.99, image: 'https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?auto=format&fit=crop&w=400&q=80' },
-      { id: 10, name: 'Pasta alla Carbonara', description: 'Spaghetti, Guanciale, Eigelb, Parmesan, schwarzer Pfeffer', price: 10.99, image: 'https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&w=400&q=80' },
-      { id: 11, name: 'Penne all\'Arrabbiata', description: 'Pikante Tomatensauce mit Knoblauch und Chili (vegan)', price: 8.49, image: 'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=400&q=80' },
-      { id: 12, name: 'Lasagne al Forno', description: 'Klassische Lasagne mit Bolognese-Sauce und Béchamel', price: 11.99, image: 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?auto=format&fit=crop&w=400&q=80' },
-    ],
-  },
-  {
-    id: 'dessert',
-    name: 'Dessert',
-    image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1200&q=80',
-    items: [
-      { id: 13, name: 'Tiramisù', description: 'Klassisches Tiramisù mit Mascarpone, Espresso und Amaretto', price: 5.99, image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=400&q=80' },
-      { id: 14, name: 'Panna Cotta', description: 'Cremige Panna Cotta mit frischer Beerensauce', price: 4.99, image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=400&q=80' },
-      { id: 15, name: 'Gelato Misto', description: 'Drei Kugeln hausgemachtes Eis nach Wahl mit Waffel', price: 3.99, image: 'https://images.unsplash.com/photo-1567206563114-c179706a56e4?auto=format&fit=crop&w=400&q=80' },
+      { id: 9,  name: 'Asian Tofu Salad', description: 'Knuspriger Tofu, Edamame, Radieschen, Gurke, Cashews und asiatisches Dressing', price: 13.90, image: 'salad-tofu.jpg' },
+      { id: 10, name: 'Caesar Salad', description: 'Römersalat, Parmesan, Croutons, gegrilltes Hühnchen und Caesar-Dressing', price: 12.90, image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80' },
+      { id: 11, name: 'Greek Salad', description: 'Tomaten, Gurke, Oliven, rote Zwiebeln, Feta-Käse und Oregano', price: 11.90, image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80' },
+      { id: 12, name: 'Garden Green Salad', description: 'Gemischte Blattsalate, Avocado, Kirschtomaten, Kürbiskerne und Vinaigrette', price: 11.90, image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&q=80' },
     ],
   },
 ];
