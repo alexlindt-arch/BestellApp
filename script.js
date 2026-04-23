@@ -1,8 +1,8 @@
 /* ===== RESTAURANT DATA ===== */
 const RESTAURANT = {
-  name: 'Pomodoro',
-  rating: 4.8,
-  reviewCount: 234,
+  name: 'BurgerHouse',
+  rating: 4.1,
+  reviewCount: 317,
   deliveryTime: '25–40 Min.',
   deliveryPrice: 2.49,
   minOrder: 12.0,
@@ -13,10 +13,10 @@ const MENU_DATA = [
     id: 'burger',
     name: 'Burger & Sandwiches',
     items: [
-      { id: 1, name: 'Classic Burger', description: 'Beef-Patty, Cheddar, Salat, Tomate, Zwiebeln und hausgemachte Sauce', price: 13.90, image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80' },
-      { id: 2, name: 'Veggie Mushroom Burger', description: 'Veggie-Patty mit gegrillten Champignons, Spinat und Senf-Dip', price: 12.90, image: 'https://images.unsplash.com/photo-1520072959219-c8f8fe30b5c0?auto=format&fit=crop&w=400&q=80' },
-      { id: 3, name: 'BBQ Cheese Burger', description: 'Doppeltes Beef-Patty, BBQ-Sauce, Bacon, Cheddar und Jalapeños', price: 15.90, image: 'https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=400&q=80' },
-      { id: 4, name: 'Double Smash Burger', description: 'Zwei dünne Smash-Patties, American Cheese, Pickles und spezielle Burgersauce', price: 16.90, image: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=400&q=80' },
+      { id: 1, name: 'Veggie Mushroom Black Burger', description: 'Mixed green salad, Tomatoes, Edamame, Mushrooms', price: 16.90, image: 'https://images.unsplash.com/photo-1520072959219-c8f8fe30b5c0?auto=format&fit=crop&w=400&q=80' },
+      { id: 2, name: 'All Meat Burger', description: 'Beef, Bacon, Dill pickles, Smoked cheese, Ketchup, BBQ sauce', price: 15.90, image: 'https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=400&q=80' },
+      { id: 3, name: 'Beef Red Burger', description: 'Beef, Cheese, Tomatoes, Lettuce, Onion', price: 14.90, image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80' },
+      { id: 4, name: 'Big Chicken Burger', description: 'Chicken, Cheese, Tomatoes, Lettuce, Onion, Bell pepper', price: 15.90, image: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=400&q=80' },
     ],
   },
   {

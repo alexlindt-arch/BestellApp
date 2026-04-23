@@ -56,7 +56,7 @@ body {
 .logo {
   font-family: 'Palanquin', sans-serif;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 24px;
   line-height: 0.8;
   color: var(--color-white);
   text-decoration: none;
@@ -307,8 +307,8 @@ body {
   position: sticky;
   top: var(--header-height);
   z-index: 100;
-  background: var(--color-white);
-  border-bottom: 2px solid var(--color-border);
+  background: #E76C1F;
+  border-bottom: none;
   display: flex;
   overflow-x: auto;
   scrollbar-width: none;
@@ -325,7 +325,7 @@ body {
   padding: 16px 20px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.72);
   text-decoration: none;
   white-space: nowrap;
   border-bottom: 3px solid transparent;
@@ -336,8 +336,8 @@ body {
 
 .category-link:hover,
 .category-link.active {
-  color: var(--color-accent);
-  border-bottom-color: var(--color-accent);
+  color: #FFFFFF;
+  border-bottom-color: #FFFFFF;
 }
 
 /* ===== DISH SECTION ===== */
@@ -359,8 +359,14 @@ body {
   line-height: 120%;
   color: #FFFFFF;
   background: #E76C1F;
-  padding: 6px 24px;
-  border-radius: 8px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  border-radius: 0;
+  margin-left: -40px;
+  margin-right: -40px;
+  padding-left: 40px;
 }
 
 /* ===== DISH LIST ===== */
@@ -1145,6 +1151,9 @@ body {
 @media (max-width: 480px) {
   .category-heading {
     font-size: 32px;
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
   }
 
   .dish-image {
