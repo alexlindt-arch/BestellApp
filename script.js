@@ -10,17 +10,6 @@ const RESTAURANT = {
 
 const MENU_DATA = [
   {
-    id: 'salat',
-    name: 'Salad',
-    icon: 'icon-salad-cat.png',
-    items: [
-      { id: 9,  name: 'Warm Beef Arugula Salad', description: 'Beef, Arugula, Field salad, Greek feta, Cherry tomatoes, Sun-dried Tomatoes, Balsamic-vinegar dressing', price: 16.90, image: 'dish-salad-beef-arugula.jpg' },
-      { id: 10, name: 'Mini Green Salad', description: 'Green salad, Cucumber, Carrots, Parsley, Radishes', price: 7.90, image: 'dish-salad-mini-green.jpg' },
-      { id: 11, name: 'Green Salad with Sea Food', description: 'Mixed greens, Cherry tomatoes, Red onion, Mussels, Squid rings, Shrimp, Dijon mustard-lemon dressing with dill', price: 16.90, image: 'dish-salad-seafood.jpg' },
-      { id: 12, name: 'Vegan Green Salad with Tofu', description: 'Green salad, Cherry tomatoes, Cucumber, Baby spinach, Edamame, Radishes, Bittercress, Tofu, Peanuts', price: 14.90, image: 'dish-salad-vegan-tofu.jpg' },
-    ],
-  },
-  {
     id: 'burger',
     name: 'Burger & Sandwiches',
     icon: 'icon-burger-cat.png',
@@ -40,6 +29,17 @@ const MENU_DATA = [
       { id: 6, name: 'Pizza Chorizo', description: 'Tomato slices, Mozzarella, Chorizo', price: 13.90, image: 'dish-pizza-chorizo.jpg' },
       { id: 7, name: 'Funghi', description: 'Red onion, Olives, Button Mushrooms, Mozzarella', price: 12.90, image: 'dish-pizza-funghi.jpg' },
       { id: 8, name: 'Quattro Formaggi with Chicken', description: 'Chicken, Mozzarella, Gorgonzola, Fontina, Parmigiano Reggiano', price: 15.90, image: 'dish-pizza-quattro-formaggi.jpg' },
+    ],
+  },
+  {
+    id: 'salat',
+    name: 'Salad',
+    icon: 'icon-salad-cat.png',
+    items: [
+      { id: 9,  name: 'Warm Beef Arugula Salad', description: 'Beef, Arugula, Field salad, Greek feta, Cherry tomatoes, Sun-dried Tomatoes, Balsamic-vinegar dressing', price: 16.90, image: 'dish-salad-beef-arugula.jpg' },
+      { id: 10, name: 'Mini Green Salad', description: 'Green salad, Cucumber, Carrots, Parsley, Radishes', price: 7.90, image: 'dish-salad-mini-green.jpg' },
+      { id: 11, name: 'Green Salad with Sea Food', description: 'Mixed greens, Cherry tomatoes, Red onion, Mussels, Squid rings, Shrimp, Dijon mustard-lemon dressing with dill', price: 16.90, image: 'dish-salad-seafood.jpg' },
+      { id: 12, name: 'Vegan Green Salad with Tofu', description: 'Green salad, Cherry tomatoes, Cucumber, Baby spinach, Edamame, Radishes, Bittercress, Tofu, Peanuts', price: 14.90, image: 'dish-salad-vegan-tofu.jpg' },
     ],
   },
 ];
