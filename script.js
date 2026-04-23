@@ -98,13 +98,13 @@ function renderDishCard(dish) {
       ${imageHTML}
       <div class="dish-content">
         <div class="dish-info">
-          <div class="dish-top-row">
-            <span class="dish-name">${dish.name}</span>
-            <span class="dish-price">${formatPrice(dish.price)}</span>
-          </div>
+          <span class="dish-name">${dish.name}</span>
           <p class="dish-description">${dish.description}</p>
         </div>
-        <button type="button" class="add-btn" data-id="${dish.id}" onclick="addToCart(${dish.id})" aria-label="${dish.name} hinzufügen">Add to basket</button>
+        <div class="dish-right">
+          <span class="dish-price">${formatPrice(dish.price)}</span>
+          <button type="button" class="add-btn" data-id="${dish.id}" onclick="addToCart(${dish.id})" aria-label="${dish.name} hinzufügen">Add to basket</button>
+        </div>
       </div>
     </div>
   `.trim();

@@ -424,24 +424,20 @@ body {
 }
 
 .dish-content {
-  width: 100%;
+  flex: 1;
   min-height: 121px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
-  gap: 4px;
-}
-
-.dish-info {
-  display: flex;
-  flex-direction: column;
   gap: 12px;
 }
 
-.dish-top-row {
+.dish-info {
+  flex: 1;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
 }
 
 .dish-name {
@@ -450,7 +446,6 @@ body {
   font-size: 24px;
   line-height: 100%;
   color: #363534;
-  flex: 1;
 }
 
 .dish-price {
@@ -460,7 +455,7 @@ body {
   line-height: 120%;
   color: #363534;
   white-space: nowrap;
-  flex-shrink: 0;
+  text-align: right;
 }
 
 .dish-description {
@@ -470,14 +465,22 @@ body {
   line-height: 120%;
   color: #363534;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
+.dish-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-shrink: 0;
+  width: 115px;
+}
+
 .add-btn {
-  align-self: flex-start;
-  height: 29px;
+  height: 30px;
   padding: 5px 8px;
   border-radius: 20px;
   background: #FFFFFF;
@@ -490,9 +493,10 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  width: 100%;
   transition: background 0.2s, box-shadow 0.2s;
-  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .add-btn:hover {
