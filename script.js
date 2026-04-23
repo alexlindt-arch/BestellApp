@@ -49,7 +49,6 @@ let cart = {};
 
 /* ===== INIT ===== */
 function init() {
-  renderCategoryNav();
   renderMenuSections();
   syncCarts();
   updateCartUI();
