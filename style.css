@@ -29,6 +29,7 @@ body {
   color: var(--color-text);
   min-width: 320px;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
 /* ===== HEADER ===== */
@@ -376,10 +377,9 @@ body {
   overflow: visible;
   display: flex;
   align-items: center;
-  padding: 0 24px;
   border-radius: 0;
   margin-left: -40px;
-  margin-right: -40px;
+  width: 100vw;
   padding-left: 40px;
 }
 
@@ -1141,6 +1141,11 @@ body {
     padding: 0 16px;
   }
 
+  .category-heading {
+    margin-left: -16px;
+    padding-left: 16px;
+  }
+
   .footer-links {
     gap: 24px;
     flex-wrap: wrap;
@@ -1170,7 +1175,6 @@ body {
   .category-heading {
     font-size: 32px;
     margin-left: -16px;
-    margin-right: -16px;
     padding-left: 16px;
   }
 
