@@ -31,12 +31,10 @@ const MENU_DATA = [
   },
   {
     id: 'salat',
-    name: 'Salat',
+    name: 'Salad',
     items: [
-      { id: 9,  name: 'Asian Tofu Salad', description: 'Knuspriger Tofu, Edamame, Radieschen, Gurke, Cashews und asiatisches Dressing', price: 13.90, image: 'salad-tofu.jpg' },
-      { id: 10, name: 'Caesar Salad', description: 'Römersalat, Parmesan, Croutons, gegrilltes Hühnchen und Caesar-Dressing', price: 12.90, image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80' },
-      { id: 11, name: 'Greek Salad', description: 'Tomaten, Gurke, Oliven, rote Zwiebeln, Feta-Käse und Oregano', price: 11.90, image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80' },
-      { id: 12, name: 'Garden Green Salad', description: 'Gemischte Blattsalate, Avocado, Kirschtomaten, Kürbiskerne und Vinaigrette', price: 11.90, image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&q=80' },
+      { id: 9,  name: 'Warm Beef Arugula Salad', description: 'Beef, Arugula, Field salad, Greek feta, Cherry tomatoes, Sun-dried Tomatoes, Balsamic-vinegar dressing', price: 16.90, image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80' },
+      { id: 10, name: 'Mini Green Salad', description: 'Green salad, Cucumber, Carrots, Parsley, Radishes', price: 7.90, image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&q=80' },
     ],
   },
 ];
