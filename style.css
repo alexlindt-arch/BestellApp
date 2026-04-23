@@ -130,8 +130,8 @@ body {
   position: absolute;
   top: 8px;
   right: 6px;
-  background: var(--color-accent);
-  color: var(--color-white);
+  background: #FFFFFF;
+  color: var(--color-accent);
   font-size: 11px;
   font-weight: 700;
   min-width: 18px;
@@ -866,20 +866,41 @@ body {
 }
 
 /* ===== ORDER CONFIRMATION ===== */
+@keyframes confirmSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes confirmFadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
 .order-confirmation {
   position: fixed;
   inset: 0;
   z-index: 300;
-  background: rgba(69, 68, 68, 0.4);
+  background: #45444466;
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .order-confirmation.hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+.order-confirmation.dismissing {
+  animation: confirmFadeOut 300ms ease-in-out forwards;
 }
 
 .confirmation-card {
@@ -893,6 +914,7 @@ body {
   width: 415px;
   max-width: 90vw;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  animation: confirmSlideIn 300ms ease-in-out 200ms both;
 }
 
 .confirmation-close {

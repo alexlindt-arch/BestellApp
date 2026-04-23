@@ -273,12 +273,20 @@ function syncAddButtons() {
   });
 }
 
+let _confirmationTimer = null;
+
 function showOrderConfirmation() {
-  document.getElementById('order-confirmation').classList.remove('hidden');
+  const overlay = document.getElementById('order-confirmation');
+  overlay.classList.remove('hidden', 'dismissing');
+  if (_confirmationTimer) clearTimeout(_confirmationTimer);
+  _confirmationTimer = setTimeout(closeOrderConfirmation, 2700);
 }
 
 function closeOrderConfirmation() {
-  document.getElementById('order-confirmation').classList.add('hidden');
+  const overlay = document.getElementById('order-confirmation');
+  overlay.classList.add('dismissing');
+  setTimeout(() => overlay.classList.add('hidden'), 300);
+  _confirmationTimer = null;
 }
 
 function toggleMobileNav() {
