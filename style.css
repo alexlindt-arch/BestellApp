@@ -372,15 +372,18 @@ body {
   font-size: 40px;
   line-height: 120%;
   color: #FFFFFF;
-  background: #E76C1F;
+  background: linear-gradient(to bottom, transparent 28px, #E76C1F 28px, #E76C1F 88px, transparent 88px);
+  position: relative;
   height: 91px;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 26px;
   border-radius: 0;
   margin-left: -40px;
   width: 100vw;
-  padding-left: 167px;
+  padding-left: 283px;
+  box-sizing: border-box;
 }
 
 .category-heading-sub {
@@ -388,13 +391,13 @@ body {
 }
 
 .category-heading-icon {
+  position: absolute;
+  left: 167px;
+  top: 0;
   height: 91px;
   width: 88px;
-  margin-right: 16px;
-  flex-shrink: 0;
   object-fit: cover;
   border-radius: 0;
-  align-self: center;
 }
 
 /* ===== DISH LIST ===== */
@@ -1176,6 +1179,18 @@ body {
   .category-heading {
     margin-left: -16px;
     padding-left: 16px;
+    padding-top: 0;
+    align-items: center;
+    background: #E76C1F;
+  }
+
+  .category-heading-icon {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 88px;
+    height: 91px;
+    margin-right: 12px;
   }
 
   .footer-links {
