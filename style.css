@@ -373,14 +373,14 @@ body {
   line-height: 120%;
   color: #FFFFFF;
   background: #E76C1F;
-  height: 60px;
-  overflow: visible;
+  height: 91px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   border-radius: 0;
   margin-left: -40px;
   width: 100vw;
-  padding-left: 40px;
+  padding-left: 167px;
 }
 
 .category-heading-sub {
@@ -388,12 +388,12 @@ body {
 }
 
 .category-heading-icon {
-  height: 180px;
-  width: 180px;
+  height: 91px;
+  width: 88px;
   margin-right: 16px;
   flex-shrink: 0;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 0;
   align-self: center;
 }
 

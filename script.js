@@ -52,6 +52,7 @@ function init() {
   renderMenuSections();
   syncCarts();
   updateCartUI();
+  updateCartMaxHeight();
 }
 
 /* ===== RENDER – CATEGORY NAV ===== */
@@ -297,9 +298,22 @@ function toggleMobileNav() {
   nav.classList.toggle('open');
 }
 
+function updateCartMaxHeight() {
+  const cartEl = document.getElementById('cart-desktop');
+  const pizzaSection = document.getElementById('cat-pizza');
+  if (!cartEl || !pizzaSection) return;
+  const pizzaHeading = pizzaSection.querySelector('.category-heading');
+  if (!pizzaHeading) return;
+  const headerOffset = 148;
+  const maxH = Math.max(pizzaHeading.getBoundingClientRect().bottom - headerOffset, 320);
+  cartEl.style.maxHeight = maxH + 'px';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const toggleBtn = document.getElementById('menu-toggle-btn');
   if (toggleBtn) toggleBtn.addEventListener('click', toggleMobileNav);
+  window.addEventListener('scroll', updateCartMaxHeight, { passive: true });
+  window.addEventListener('resize', updateCartMaxHeight);
 });
 
 function openMobileCart() {
