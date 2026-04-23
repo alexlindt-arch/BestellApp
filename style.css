@@ -170,18 +170,22 @@ body {
   transform: translateX(-50%);
   width: 200px;
   height: 200px;
-  background: var(--color-accent);
+  background: var(--color-white);
   border-radius: 50%;
   border: 13px solid #FDEADC;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Palanquin', sans-serif;
-  font-weight: 700;
-  font-size: 80px;
-  color: var(--color-white);
+  overflow: hidden;
   z-index: 10;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.badge-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 /* ===== RESTAURANT INFO ===== */
