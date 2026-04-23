@@ -388,16 +388,13 @@ body {
 }
 
 .category-heading-icon {
-  height: 91px;
-  width: auto;
-  margin-right: 8px;
-  margin-left: -8px;
+  height: 180px;
+  width: 180px;
+  margin-right: 16px;
   flex-shrink: 0;
-  object-fit: contain;
-  /* icon overflows the 60px bar equally above and below */
+  object-fit: cover;
+  border-radius: 50%;
   align-self: center;
-  position: relative;
-  top: 0;
 }
 
 /* ===== DISH LIST ===== */
