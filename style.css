@@ -332,16 +332,13 @@ body {
   color: rgba(255, 255, 255, 0.72);
   text-decoration: none;
   white-space: nowrap;
-  border-bottom: 3px solid transparent;
-  margin-bottom: -2px;
-  transition: color 0.2s, border-color 0.2s;
+  transition: color 0.2s;
   cursor: pointer;
 }
 
 .category-link:hover,
 .category-link.active {
   color: #FFFFFF;
-  border-bottom-color: #FFFFFF;
 }
 
 /* ===== DISH SECTION ===== */
@@ -944,6 +941,7 @@ body {
   align-items: flex-end;
   gap: 26px;
   width: 415px;
+  min-height: 269px;
   max-width: 90vw;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
   animation: confirmSlideIn 300ms ease-in-out 200ms both;
@@ -971,8 +969,11 @@ body {
   width: 100%;
 }
 
-.confirmation-icon {
-  font-size: 52px;
+.confirmation-truck {
+  width: 80px;
+  height: 57px;
+  object-fit: contain;
+  transform: scaleX(-1);
 }
 
 .confirmation-text {
