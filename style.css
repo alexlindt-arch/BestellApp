@@ -369,6 +369,10 @@ body {
   padding-left: 40px;
 }
 
+.category-heading-sub {
+  font-weight: 400;
+}
+
 /* ===== DISH LIST ===== */
 .dish-list {
   display: flex;

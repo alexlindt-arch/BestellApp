@@ -23,10 +23,10 @@ const MENU_DATA = [
     id: 'pizza',
     name: 'Pizza (30cm)',
     items: [
-      { id: 5, name: 'Margherita', description: 'Tomatensauce, Mozzarella fior di latte, frisches Basilikum', price: 11.90, image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=400&q=80' },
-      { id: 6, name: 'Pizza Chorizo', description: 'Tomatensauce, Mozzarella, Chorizo-Scheiben, Chili', price: 13.90, image: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=400&q=80' },
-      { id: 7, name: 'Quattro Formaggi', description: 'Vier-Käse-Pizza: Mozzarella, Gorgonzola, Parmesan, Fontina', price: 13.90, image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=80' },
-      { id: 8, name: 'Pizza Funghi', description: 'Tomatensauce, Mozzarella, gemischte Pilze, frischer Thymian', price: 12.90, image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=400&q=80' },
+      { id: 5, name: 'Pizza Margherita', description: 'Tomato Sauce, Mozzarella', price: 11.90, image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=400&q=80' },
+      { id: 6, name: 'Pizza Chorizo', description: 'Tomato slices, Mozzarella, Chorizo', price: 13.90, image: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=400&q=80' },
+      { id: 7, name: 'Funghi', description: 'Red onion, Olives, Button Mushrooms, Mozzarella', price: 12.90, image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=400&q=80' },
+      { id: 8, name: 'Quattro Formaggi with Chicken', description: 'Chicken, Mozzarella, Gorgonzola, Fontina, Parmigiano Reggiano', price: 15.90, image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=80' },
     ],
   },
   {
@@ -69,10 +69,14 @@ function renderMenuSections() {
   container.innerHTML = MENU_DATA.map(renderCategorySection).join('');
 }
 
+function formatCategoryHeading(name) {
+  return name.replace(/(\s*)(\([^)]+\))$/, '<span class="category-heading-sub">$1$2</span>');
+}
+
 function renderCategorySection(cat) {
   return `
     <section id="cat-${cat.id}" class="dish-section">
-      <h2 class="category-heading">${cat.name}</h2>
+      <h2 class="category-heading">${formatCategoryHeading(cat.name)}</h2>
       <div class="dish-list">
         ${cat.items.map(renderDishCard).join('')}
       </div>
