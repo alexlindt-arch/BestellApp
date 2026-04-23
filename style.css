@@ -364,6 +364,7 @@ body {
   color: #FFFFFF;
   background: #E76C1F;
   height: 60px;
+  overflow: visible;
   display: flex;
   align-items: center;
   padding: 0 24px;
@@ -375,6 +376,19 @@ body {
 
 .category-heading-sub {
   font-weight: 400;
+}
+
+.category-heading-icon {
+  height: 91px;
+  width: auto;
+  margin-right: 8px;
+  margin-left: -8px;
+  flex-shrink: 0;
+  object-fit: contain;
+  /* icon overflows the 60px bar equally above and below */
+  align-self: center;
+  position: relative;
+  top: 0;
 }
 
 /* ===== DISH LIST ===== */
