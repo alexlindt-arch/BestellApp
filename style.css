@@ -555,6 +555,8 @@ body {
   font-size: 32px;
   line-height: 120%;
   color: #FDEADC;
+  text-align: center;
+  width: 100%;
 }
 
 .cart-empty {
@@ -587,14 +589,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: 340px;
 }
 
 /* Cart item – top row */
 .cart-item-top {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
-  height: 26px;
 }
 
 .cart-item-name {
@@ -604,12 +605,17 @@ body {
   line-height: 120%;
   color: #363534;
   flex: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.cart-item-close {
+/* Cart item – bottom row */
+.cart-item-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-item-delete {
   width: 24px;
   height: 24px;
   border: none;
@@ -618,32 +624,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 3px 4px;
   flex-shrink: 0;
-  padding: 0;
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
-
-.cart-item-close:hover { opacity: 1; }
-
-/* Cart item – bottom row */
-.cart-item-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 29px;
-}
-
-.cart-item-delete {
-  width: 43px;
-  height: 29px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0;
   opacity: 0.7;
   transition: opacity 0.2s;
 }

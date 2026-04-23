@@ -123,7 +123,7 @@ function buildCartHTML() {
   const listHTML = items.length === 0 ? buildEmptyCart() : buildCartList(items);
   return `
     <div class="cart-header">
-      <h2 class="cart-title">Your Basket</h2>
+      <h2 class="cart-title">Basket</h2>
     </div>
     <div class="cart-items-scroll">${listHTML}</div>
     ${buildCartFooter()}
@@ -140,21 +140,15 @@ function buildCartList(items) {
 
 function buildCartItem(entry) {
   const { dish, quantity } = entry;
-  const leftControl = quantity === 1
-    ? `<button type="button" class="cart-item-delete" onclick="removeFromCart(${dish.id})" aria-label="${dish.name} löschen">
-        <svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M1 4h14M6 4V2h4v2M2 4l1 12h10L14 4" stroke="#363534" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-       </button>`
-    : `<button type="button" class="qty-btn-new" onclick="updateQuantity(${dish.id}, -1)" aria-label="Weniger">−</button>`;
   return `
     <li class="cart-item">
       <div class="cart-item-top">
         <span class="cart-item-name">${quantity} x ${dish.name}</span>
-        <button type="button" class="cart-item-close" onclick="removeFromCart(${dish.id})" aria-label="${dish.name} entfernen">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4l8 8" stroke="#726D6D" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
       </div>
       <div class="cart-item-bottom">
-        ${leftControl}
+        <button type="button" class="cart-item-delete" onclick="removeFromCart(${dish.id})" aria-label="${dish.name} löschen">
+          <svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M1 4h14M6 4V2h4v2M2 4l1 12h10L14 4" stroke="#363534" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
         <div class="cart-qty-controls">
           <span class="qty-display-new">${quantity}</span>
           <button type="button" class="qty-btn-new" onclick="updateQuantity(${dish.id}, 1)" aria-label="Mehr">+</button>
