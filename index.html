@@ -5,8 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BurgerHouse – Burgers, Pizza &amp; Greens</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Palanquin:wght@400;700&family=Palanquin+Dark:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="hero.jpg" as="image" />
+  <link rel="preload" href="logo.png" as="image" />
+  <link rel="preload" href="burger-badge.png" as="image" />
+  <link rel="preload" href="icon-burger-cat.png" as="image" />
+  <link rel="preload" href="icon-pizza-cat.png" as="image" />
+  <link rel="preload" href="icon-salad-cat.png" as="image" />
+  <link rel="preload" href="dish-veggie-mushroom-burger.jpg" as="image" />
+  <link rel="preload" href="dish-all-meat-burger.jpg" as="image" />
+  <link rel="preload" href="dish-beef-red-burger.jpg" as="image" />
+  <link rel="preload" href="dish-big-chicken-burger.jpg" as="image" />
+  <link rel="preload" href="dish-pizza-margherita.jpg" as="image" />
+  <link rel="preload" href="dish-pizza-chorizo.jpg" as="image" />
+  <link rel="preload" href="dish-pizza-funghi.jpg" as="image" />
+  <link rel="preload" href="dish-pizza-quattro-formaggi.jpg" as="image" />
+  <link rel="preload" href="dish-salad-beef-arugula.jpg" as="image" />
+  <link rel="preload" href="dish-salad-mini-green.jpg" as="image" />
+  <link rel="preload" href="dish-salad-seafood.jpg" as="image" />
+  <link rel="preload" href="dish-salad-vegan-tofu.jpg" as="image" />
+  <link rel="preload" href="delivery-truck.png" as="image" />
+  <link rel="stylesheet" href="style.css?v=16" />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Palanquin:wght@400;600;700&family=Palanquin+Dark:wght@400;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
 </head>
 <body>
@@ -14,14 +33,13 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="#" class="logo">
-        <span class="material-symbols-outlined logo-icon">takeout_dining</span>
-        <span class="logo-text">Bestell APP</span>
+        <img src="logo.png" alt="Bestell APP" class="logo-img" />
       </a>
-      <button type="button" class="menu-toggle-btn" aria-label="Menü öffnen">
-        <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect y="0" width="22" height="2.5" rx="1.25" fill="#726D6D"/>
-          <rect y="6.75" width="22" height="2.5" rx="1.25" fill="#726D6D"/>
-          <rect y="13.5" width="22" height="2.5" rx="1.25" fill="#726D6D"/>
+      <button type="button" class="menu-toggle-btn" id="menu-toggle-btn" aria-label="Menü öffnen">
+        <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
+          <rect y="0" width="22" height="2.5" rx="1.25" fill="#FFFFFF"/>
+          <rect y="6.75" width="22" height="2.5" rx="1.25" fill="#FFFFFF"/>
+          <rect y="13.5" width="22" height="2.5" rx="1.25" fill="#FFFFFF"/>
         </svg>
       </button>
     </div>
@@ -29,11 +47,7 @@
 
   <div class="hero-section">
     <div class="hero-image-wrapper">
-      <img
-        src="hero.jpg"
-        alt="BurgerHouse"
-        class="hero-image"
-      />
+      <img src="hero.jpg" alt="BurgerHouse" class="hero-image" />
     </div>
     <div class="restaurant-logo-badge">
       <img src="burger-badge.png" alt="BurgerHouse" class="badge-img" />
@@ -43,15 +57,13 @@
   <section id="info" class="restaurant-info">
     <div class="restaurant-info-inner">
       <div class="ri-row">
-        <h1 class="restaurant-name">BurgerHouse</h1>
+        <h1 class="restaurant-name"><span class="name-burger">Burger</span><span class="name-house">House</span></h1>
         <div class="rating-chip">
-          <svg class="rating-star-icon" width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 1L14.9 8.26L22.75 8.99L17.1 13.97L18.82 21.64L12 17.77L5.18 21.64L6.9 13.97L1.25 8.99L9.1 8.26L12 1Z" fill="#363534"/>
+          <svg class="rating-star-icon" width="16" height="16" viewBox="0 0 24 23" fill="none">
+            <path d="M12 1L14.9 8.26L22.75 8.99L17.1 13.97L18.82 21.64L12 17.77L5.18 21.64L6.9 13.97L1.25 8.99L9.1 8.26L12 1Z" fill="#124658"/>
           </svg>
-          <div class="rating-text-group">
-            <span class="rating-score">4,1</span>
-            <span class="rating-count">(317)</span>
-          </div>
+          <span class="rating-score">4,1</span>
+          <span class="rating-count">(317)</span>
         </div>
       </div>
       <p class="restaurant-description">The best of Burgers, Pizza, and Greens, all in one great place.</p>
@@ -67,10 +79,23 @@
     </aside>
   </div>
 
-  <button type="button" class="mobile-cart-btn" id="mobile-cart-btn" onclick="openMobileCart()">
-    🛒 <span id="mobile-cart-count">0</span> Artikel &middot;
-    <span id="mobile-cart-total">0,00&nbsp;€</span>
-  </button>
+  <span id="mobile-cart-total" style="display:none">0,00&nbsp;€</span>
+
+  <nav class="mobile-bottom-nav" id="mobile-bottom-nav">
+    <button type="button" class="nav-item" aria-label="Home">
+      <span class="material-symbols-outlined nav-icon">home</span>
+    </button>
+    <button type="button" class="nav-item" aria-label="Profil">
+      <span class="material-symbols-outlined nav-icon">person</span>
+    </button>
+    <button type="button" class="nav-item" aria-label="Bestellungen">
+      <span class="material-symbols-outlined nav-icon">takeout_dining</span>
+    </button>
+    <button type="button" class="nav-item nav-item--basket" onclick="openMobileCart()" aria-label="Warenkorb">
+      <span class="material-symbols-outlined nav-icon">shopping_cart</span>
+      <span class="nav-cart-badge nav-cart-badge--hidden" id="mobile-cart-count">0</span>
+    </button>
+  </nav>
 
   <dialog class="mobile-cart-dialog" id="mobile-cart-dialog">
     <div class="dialog-header">
@@ -83,7 +108,7 @@
   <div class="order-confirmation hidden" id="order-confirmation">
     <div class="confirmation-card">
       <button type="button" class="confirmation-close" onclick="closeOrderConfirmation()" aria-label="Schließen">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4l8 8" stroke="#FDEADC" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4l8 8" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
       <div class="confirmation-content">
         <img src="delivery-truck.png" alt="" class="confirmation-truck" />
@@ -99,7 +124,7 @@
     <div class="footer-inner">
       <div class="footer-links">
         <div class="footer-copyright">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <circle cx="12" cy="12" r="10" stroke="#FFFFFF" stroke-width="1.5"/>
             <path d="M15 9.5C14.2 8.6 13.2 8 12 8C9.8 8 8 9.8 8 12C8 14.2 9.8 16 12 16C13.2 16 14.2 15.4 15 14.5" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
           </svg>

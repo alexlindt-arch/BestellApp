@@ -52,12 +52,12 @@ function init() {
   renderMenuSections();
   syncCarts();
   updateCartUI();
-  updateCartMaxHeight();
 }
 
 /* ===== RENDER – CATEGORY NAV ===== */
 function renderCategoryNav() {
   const nav = document.getElementById('category-nav');
+  if (!nav) return;
   nav.innerHTML = MENU_DATA.map((cat, i) => categoryNavItem(cat, i === 0)).join('');
 }
 
@@ -78,7 +78,7 @@ function formatCategoryHeading(name) {
 
 function renderCategorySection(cat) {
   const iconHTML = cat.icon
-    ? `<img src="${cat.icon}" alt="" class="category-heading-icon" aria-hidden="true" />`
+    ? `<div class="category-heading-icon category-heading-icon--${cat.id}" aria-hidden="true" style="background-image:url('${cat.icon}')"></div>`
     : '';
   return `
     <section id="cat-${cat.id}" class="dish-section">
@@ -92,7 +92,7 @@ function renderCategorySection(cat) {
 
 function renderDishCard(dish) {
   const imageHTML = dish.image
-    ? `<img class="dish-image" src="${dish.image}" alt="${dish.name}" loading="lazy" />`
+    ? `<img class="dish-image" src="${dish.image}" alt="${dish.name}" loading="eager" fetchpriority="high" />`
     : '';
   return `
     <div class="dish-card">
@@ -104,7 +104,9 @@ function renderDishCard(dish) {
         </div>
         <div class="dish-right">
           <span class="dish-price">${formatPrice(dish.price)}</span>
-          <button type="button" class="add-btn" data-id="${dish.id}" onclick="addToCart(${dish.id})" aria-label="${dish.name} hinzufügen"><svg width="24" height="24" viewBox="11 11 28 28" fill="none" aria-hidden="true"><path d="M20.2067 37C19.546 37 18.9805 36.765 18.5101 36.295C18.0397 35.825 17.8044 35.26 17.8044 34.6C17.8044 33.94 18.0397 33.375 18.5101 32.905C18.9805 32.435 19.546 32.2 20.2067 32.2C20.8673 32.2 21.4328 32.435 21.9032 32.905C22.3737 33.375 22.6089 33.94 22.6089 34.6C22.6089 35.26 22.3737 35.825 21.9032 36.295C21.4328 36.765 20.8673 37 20.2067 37ZM32.2178 37C31.5571 37 30.9916 36.765 30.5212 36.295C30.0508 35.825 29.8155 35.26 29.8155 34.6C29.8155 33.94 30.0508 33.375 30.5212 32.905C30.9916 32.435 31.5571 32.2 32.2178 32.2C32.8784 32.2 33.4439 32.435 33.9143 32.905C34.3848 33.375 34.62 33.94 34.62 34.6C34.62 35.26 34.3848 35.825 33.9143 36.295C33.4439 36.765 32.8784 37 32.2178 37ZM19.1857 17.8L22.0684 23.8H30.4761L33.7792 17.8H19.1857ZM18.0447 15.4H35.761C36.2215 15.4 36.5718 15.605 36.812 16.015C37.0522 16.425 37.0622 16.84 36.842 17.26L32.5781 24.94C32.3579 25.34 32.0626 25.65 31.6923 25.87C31.3219 26.09 30.9166 26.2 30.4761 26.2H21.5279L20.2067 28.6H33.4189C33.7592 28.6 34.0444 28.715 34.2747 28.945C34.5049 29.175 34.62 29.46 34.62 29.8C34.62 30.14 34.5049 30.425 34.2747 30.655C34.0444 30.885 33.7592 31 33.4189 31H20.2067C19.3058 31 18.6252 30.605 18.1648 29.815C17.7043 29.025 17.6843 28.24 18.1047 27.46L19.7262 24.52L15.4022 15.4H14.2011C13.8608 15.4 13.5755 15.285 13.3453 15.055C13.1151 14.825 13 14.54 13 14.2C13 13.86 13.1151 13.575 13.3453 13.345C13.5755 13.115 13.8608 13 14.2011 13H16.1529C16.3731 13 16.5833 13.06 16.7835 13.18C16.9837 13.3 17.1338 13.47 17.2339 13.69L18.0447 15.4Z" fill="currentColor"/></svg></button>
+          <button type="button" class="add-btn" data-id="${dish.id}" onclick="addToCart(${dish.id})" aria-label="${dish.name} hinzufügen">
+            Add to basket
+          </button>
         </div>
       </div>
     </div>
@@ -123,7 +125,7 @@ function buildCartHTML() {
   const listHTML = items.length === 0 ? buildEmptyCart() : buildCartList(items);
   return `
     <div class="cart-header">
-      <h2 class="cart-title">Basket</h2>
+      <h2 class="cart-title">Your Basket</h2>
     </div>
     <div class="cart-items-scroll">${listHTML}</div>
     ${buildCartFooter()}
@@ -131,7 +133,18 @@ function buildCartHTML() {
 }
 
 function buildEmptyCart() {
-  return `<p class="cart-empty">Your basket is empty.<br>Add some dishes!</p>`;
+  return `
+    <div class="cart-empty">
+      <p class="cart-empty-text">Nothing here yet.<br>Go ahead and choose something delicious!</p>
+      <div class="cart-empty-icon-wrap">
+        <svg class="cart-empty-icon" viewBox="0 0 64 64" fill="#FDEADC" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 4h6.5l8.7 31.2a4 4 0 003.8 2.8H48a4 4 0 003.8-2.8L56 16H16"/>
+          <circle cx="24" cy="52" r="4"/>
+          <circle cx="46" cy="52" r="4"/>
+        </svg>
+      </div>
+    </div>
+  `;
 }
 
 function buildCartList(items) {
@@ -143,13 +156,15 @@ function buildCartItem(entry) {
   return `
     <li class="cart-item">
       <div class="cart-item-top">
-        <span class="cart-item-name">${quantity} x ${dish.name}</span>
+        <span class="cart-item-name">${dish.name}</span>
       </div>
       <div class="cart-item-bottom">
         <button type="button" class="cart-item-delete" onclick="removeFromCart(${dish.id})" aria-label="${dish.name} löschen">
-          <svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M1 4h14M6 4V2h4v2M2 4l1 12h10L14 4" stroke="#363534" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M1 4h14M6 4V2h4v2M2 4l1 12h10L14 4" stroke="#E76C1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="cart-qty-controls">
+          <!-- FIX: Minus-Button war nie vorhanden -->
+          <button type="button" class="qty-btn-new" onclick="updateQuantity(${dish.id}, -1)" aria-label="Weniger">−</button>
           <span class="qty-display-new">${quantity}</span>
           <button type="button" class="qty-btn-new" onclick="updateQuantity(${dish.id}, 1)" aria-label="Mehr">+</button>
         </div>
@@ -157,18 +172,6 @@ function buildCartItem(entry) {
       </div>
     </li>
   `.trim();
-}
-
-function buildCartSubtotal(subtotal, hasItems) {
-  if (!hasItems) return '';
-  return `
-    <div class="cart-row"><span>Zwischensumme</span><span>${formatPrice(subtotal)}</span></div>
-    <div class="cart-row"><span>Lieferkosten</span><span>${formatPrice(RESTAURANT.deliveryPrice)}</span></div>
-  `.trim();
-}
-
-function buildOrderButton(hasItems) {
-  return `<button type="button" class="order-btn" onclick="placeOrder()" ${!hasItems ? 'disabled' : ''}>Jetzt bestellen</button>`;
 }
 
 function buildCartFooter() {
@@ -246,6 +249,7 @@ function placeOrder() {
   syncCarts();
   updateCartUI();
   closeMobileCart();
+  document.querySelector('.cart-wrapper')?.classList.add('cart-hidden');
   showOrderConfirmation();
 }
 
@@ -254,12 +258,13 @@ function updateCartUI() {
   const count = getCartItemCount();
   const subtotal = getCartTotal();
   const total = subtotal + (count > 0 ? RESTAURANT.deliveryPrice : 0);
-  document.getElementById('mobile-cart-count').textContent = count;
-  document.getElementById('mobile-cart-total').textContent = formatPrice(total);
-  const btn = document.getElementById('mobile-cart-btn');
-  btn.style.display = count > 0 ? 'flex' : 'none';
-  const badge = document.getElementById('header-cart-badge');
-  if (badge) badge.textContent = count;
+  const badge = document.getElementById('mobile-cart-count');
+  if (badge) {
+    badge.textContent = count;
+    badge.classList.toggle('nav-cart-badge--hidden', count === 0);
+  }
+  const totalEl = document.getElementById('mobile-cart-total');
+  if (totalEl) totalEl.textContent = formatPrice(total);
   syncAddButtons();
 }
 
@@ -267,16 +272,12 @@ function syncAddButtons() {
   document.querySelectorAll('.add-btn[data-id]').forEach(btn => {
     const id = parseInt(btn.dataset.id, 10);
     const qty = cart[id] ? cart[id].quantity : 0;
-    const existingBadge = btn.querySelector('.add-btn-badge');
-    if (existingBadge) existingBadge.remove();
     if (qty > 0) {
       btn.classList.add('add-btn--added');
-      const badge = document.createElement('span');
-      badge.className = 'add-btn-badge';
-      badge.textContent = qty;
-      btn.appendChild(badge);
+      btn.textContent = `Added ${qty}`;
     } else {
       btn.classList.remove('add-btn--added');
+      btn.textContent = 'Add to basket';
     }
   });
 }
@@ -293,32 +294,17 @@ function showOrderConfirmation() {
 function closeOrderConfirmation() {
   const overlay = document.getElementById('order-confirmation');
   overlay.classList.add('dismissing');
-  setTimeout(() => overlay.classList.add('hidden'), 300);
+  setTimeout(() => {
+    overlay.classList.add('hidden');
+    document.querySelector('.cart-wrapper')?.classList.remove('cart-hidden');
+  }, 300);
   _confirmationTimer = null;
 }
 
 function toggleMobileNav() {
   const nav = document.querySelector('.header-nav');
-  nav.classList.toggle('open');
+  if (nav) nav.classList.toggle('open');
 }
-
-function updateCartMaxHeight() {
-  const cartEl = document.getElementById('cart-desktop');
-  const pizzaSection = document.getElementById('cat-pizza');
-  if (!cartEl || !pizzaSection) return;
-  const pizzaHeading = pizzaSection.querySelector('.category-heading');
-  if (!pizzaHeading) return;
-  const headerOffset = 148;
-  const maxH = Math.max(pizzaHeading.getBoundingClientRect().bottom - headerOffset, 320);
-  cartEl.style.maxHeight = maxH + 'px';
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const toggleBtn = document.getElementById('menu-toggle-btn');
-  if (toggleBtn) toggleBtn.addEventListener('click', toggleMobileNav);
-  window.addEventListener('scroll', updateCartMaxHeight, { passive: true });
-  window.addEventListener('resize', updateCartMaxHeight);
-});
 
 function openMobileCart() {
   document.getElementById('mobile-cart-dialog').showModal();
@@ -338,7 +324,7 @@ function findDish(dishId) {
 }
 
 function formatPrice(price) {
-  return price.toFixed(2).replace('.', ',') + '\u00a0€';
+  return price.toFixed(2).replace('.', ',') + ' €';
 }
 
 function handleCategoryClick(event, catId) {
@@ -358,5 +344,32 @@ function setActiveCategory(catId) {
   });
 }
 
+/* ===== SCROLL SPY (NEU) ===== */
+// Aktualisiert den aktiven Kategorie-Link beim Scrollen automatisch
+function initScrollSpy() {
+  const sections = MENU_DATA
+    .map(cat => document.getElementById('cat-' + cat.id))
+    .filter(Boolean);
+  if (!sections.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setActiveCategory(entry.target.id.replace('cat-', ''));
+      }
+    });
+  }, {
+    rootMargin: '-148px 0px -60% 0px',
+    threshold: 0,
+  });
+
+  sections.forEach(section => observer.observe(section));
+}
+
 /* ===== BOOTSTRAP ===== */
-document.addEventListener('DOMContentLoaded', init);
+// FIX: War zweimal als separater DOMContentLoaded-Listener – jetzt zusammengeführt
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('menu-toggle-btn');
+  if (toggleBtn) toggleBtn.addEventListener('click', toggleMobileNav);
+  init();
+});
