@@ -583,8 +583,9 @@ body {
 }
 
 .cart-empty-icon {
-  width: 150px;
-  height: 150px;
+  width: 128px;
+  height: 129px;
+  border-radius: 5px;
   flex-shrink: 0;
 }
 
