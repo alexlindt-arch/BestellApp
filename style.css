@@ -302,7 +302,7 @@ body {
   background: var(--color-primary);
   height: 60px;
   width: 100vw;
-  margin-left: -40px;
+  margin-left: min(-40px, calc(680px - 50vw));
   padding: 0 24px 0 280px;
   display: flex;
   align-items: center;
@@ -381,13 +381,33 @@ body {
   transform: translateY(-1px);
 }
 
-.dish-image {
+.dish-image-wrap {
   width: 160px;
   height: 110px;
-  object-fit: cover;
   border-radius: 18px;
   flex-shrink: 0;
+  overflow: hidden;
 }
+
+.dish-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transform: scale(1.12);
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 769px) {
+  .dish-image[src="dish-beef-red-burger.jpg"] {
+    transform: scale(1.7);
+  }
+  .dish-image[src="dish-pizza-margherita.jpg"] {
+    transform: scale(1.7);
+  }
+}
+
 
 .dish-content {
   flex: 1;
@@ -612,6 +632,10 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 8px;
+}
+
+.cart-item-delete--corner {
+  display: none;
 }
 
 .cart-item-delete {
@@ -849,12 +873,16 @@ body {
   justify-content: center;
 }
 
-.nav-item--basket-active .nav-icon {
-  color: #E76C1F;
+.nav-item--basket-active .nav-icon-cart-path {
+  fill: #E76C1F;
 }
 
 .nav-cart-badge--hidden {
   display: none;
+}
+
+.nav-icon-orders {
+  display: block;
 }
 
 /* ===== MOBILE CART BUTTON (legacy, hidden) ===== */
@@ -1109,6 +1137,26 @@ body {
   color: #FFFFFF;
 }
 
+/* ===== DESKTOP CART OVERRIDES ===== */
+@media (min-width: 769px) {
+  .cart-item-delete--corner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    cursor: pointer;
+  }
+  .cart-item-delete--corner:hover { opacity: 1; }
+  .qty-btn-new--as-delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+  }
+  .qty-btn-new--as-delete:hover { opacity: 1; }
+}
+
 /* ===== RESPONSIVE – TABLET ===== */
 @media (max-width: 1100px) {
   :root {
@@ -1122,7 +1170,7 @@ body {
     --cart-width: 300px;
   }
 
-  .dish-image {
+  .dish-image-wrap {
     width: 120px;
     height: 90px;
   }
@@ -1255,11 +1303,14 @@ body {
     gap: 16px;
   }
 
-  .dish-image {
+  .dish-image-wrap {
     width: 100%;
     height: 86px;
     border-radius: 12px;
-    object-fit: cover;
+  }
+
+  .dish-image {
+    border-radius: 0;
   }
 
   .dish-content {
@@ -1322,6 +1373,88 @@ body {
   .cart-wrapper { display: none; }
   .mobile-bottom-nav { display: flex; }
   body { padding-bottom: 78px; }
+
+  /* Mobile cart items – Figma spec */
+  .cart-item {
+    background: #FDEADC;
+    border-radius: 20px;
+    padding: 20px;
+    gap: 8px;
+  }
+
+  .cart-item-top {
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .cart-item-name {
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 120%;
+    color: #363534;
+  }
+
+  .cart-item-delete--corner {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .cart-item-bottom {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cart-qty-controls {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    gap: 8px;
+  }
+
+  .qty-btn-new {
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 120%;
+    color: #363534;
+    width: auto;
+    height: auto;
+  }
+
+  .qty-btn-new--as-delete {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .qty-display-new {
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 120%;
+    color: #363534;
+    width: auto;
+  }
+
+  .cart-item-price {
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 120%;
+    color: #363534;
+  }
 
   /* Footer */
   .site-footer {

@@ -92,7 +92,7 @@ function renderCategorySection(cat) {
 
 function renderDishCard(dish) {
   const imageHTML = dish.image
-    ? `<img class="dish-image" src="${dish.image}" alt="${dish.name}" loading="eager" fetchpriority="high" />`
+    ? `<div class="dish-image-wrap"><img class="dish-image" src="${dish.image}" alt="${dish.name}" loading="eager" fetchpriority="high" /></div>`
     : '';
   return `
     <div class="dish-card">
@@ -153,18 +153,25 @@ function buildCartList(items) {
 
 function buildCartItem(entry) {
   const { dish, quantity } = entry;
+  const deleteIcon = `<svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M1 4h14M6 4V2h4v2M2 4l1 12h10L14 4" stroke="#E76C1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+  const cornerDelete = quantity > 1
+    ? `<button type="button" class="cart-item-delete cart-item-delete--corner" onclick="removeFromCart(${dish.id})" aria-label="${dish.name} löschen">${deleteIcon}</button>`
+    : '';
+
+  const leftControl = quantity <= 1
+    ? `<button type="button" class="qty-btn-new qty-btn-new--as-delete" onclick="removeFromCart(${dish.id})" aria-label="${dish.name} löschen">${deleteIcon}</button>`
+    : `<button type="button" class="qty-btn-new" onclick="updateQuantity(${dish.id}, -1)" aria-label="Weniger">−</button>`;
+
   return `
     <li class="cart-item">
       <div class="cart-item-top">
-        <span class="cart-item-name">${dish.name}</span>
+        <span class="cart-item-name">${quantity} x ${dish.name}</span>
+        ${cornerDelete}
       </div>
       <div class="cart-item-bottom">
-        <button type="button" class="cart-item-delete" onclick="removeFromCart(${dish.id})" aria-label="${dish.name} löschen">
-          <svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M1 4h14M6 4V2h4v2M2 4l1 12h10L14 4" stroke="#E76C1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
         <div class="cart-qty-controls">
-          <!-- FIX: Minus-Button war nie vorhanden -->
-          <button type="button" class="qty-btn-new" onclick="updateQuantity(${dish.id}, -1)" aria-label="Weniger">−</button>
+          ${leftControl}
           <span class="qty-display-new">${quantity}</span>
           <button type="button" class="qty-btn-new" onclick="updateQuantity(${dish.id}, 1)" aria-label="Mehr">+</button>
         </div>
