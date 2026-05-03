@@ -1475,7 +1475,13 @@ body {
     align-items: center;
   }
 
-  .footer-copyright { gap: 4px; }
+  .footer-copyright {
+    gap: 4px;
+    order: 3;
+  }
+
+  .footer-links > a:nth-child(2) { order: 1; }
+  .footer-links > a:nth-child(3) { order: 2; }
 
   .footer-text,
   .footer-link {
