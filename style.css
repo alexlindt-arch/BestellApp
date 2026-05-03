@@ -1189,22 +1189,45 @@ body {
   }
 
   /* Category Heading */
+  .dish-section {
+    padding-top: 44px;
+    margin-top: -28px;
+  }
+
   .category-heading {
     font-family: 'Palanquin', sans-serif;
     font-size: 32px;
     height: 60px;
     width: 100%;
     margin-left: 0;
-    padding: 0 16px 0 230px;
+    padding: 0 16px;
+    justify-content: center;
     clip-path: none;
+    overflow: visible;
   }
 
   .category-heading-icon {
     width: 58px;
     height: 60px;
-    top: 0;
+    top: -37px;
     transform: none;
     left: 159px;
+    background-size: 346px 231px;
+    background-position: -263px -24px;
+  }
+
+  .category-heading-icon--pizza {
+    width: 53px;
+    left: 161px;
+    background-size: 254px 169px;
+    background-position: -16px -9px;
+  }
+
+  .category-heading-icon--salat {
+    width: 59px;
+    left: 157px;
+    background-size: 320px 213px;
+    background-position: -21px -117px;
   }
 
   /* Dish cards – vertical layout */
@@ -1290,10 +1313,32 @@ body {
   .mobile-bottom-nav { display: flex; }
   body { padding-bottom: 78px; }
 
+  /* Footer */
+  .site-footer {
+    min-height: 128px;
+    padding: 32px 0;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
   .footer-links {
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .footer-copyright { gap: 4px; }
+
+  .footer-text,
+  .footer-link {
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #FFFFFF;
   }
 }
 
