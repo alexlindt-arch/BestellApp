@@ -313,6 +313,11 @@ body {
   z-index: 10;
 }
 
+.category-heading-text {
+  position: relative;
+  z-index: 2;
+}
+
 .category-heading-sub {
   font-weight: 500;
   opacity: 0.8;
@@ -1203,8 +1208,8 @@ body {
     font-family: 'Palanquin', sans-serif;
     font-size: 32px;
     height: 60px;
-    width: 100%;
-    margin-left: 0;
+    width: 100vw;
+    margin-left: -20px;
     padding: 0 16px;
     justify-content: center;
     clip-path: none;

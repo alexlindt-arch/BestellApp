@@ -82,7 +82,7 @@ function renderCategorySection(cat) {
     : '';
   return `
     <section id="cat-${cat.id}" class="dish-section">
-      <h2 class="category-heading">${iconHTML}${formatCategoryHeading(cat.name)}</h2>
+      <h2 class="category-heading">${iconHTML}<span class="category-heading-text">${formatCategoryHeading(cat.name)}</span></h2>
       <div class="dish-list">
         ${cat.items.map(renderDishCard).join('')}
       </div>
