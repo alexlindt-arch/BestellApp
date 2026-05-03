@@ -829,19 +829,23 @@ body {
 
 .nav-cart-badge {
   position: absolute;
-  top: -5px;
-  right: -5px;
-  background: var(--color-primary);
-  color: #FFFFFF;
+  top: -3px;
+  left: 16px;
+  background: #FDEADC;
+  color: #363534;
   border-radius: 50%;
-  min-width: 16px;
-  height: 16px;
-  font-size: 10px;
-  font-weight: 700;
+  width: 15px;
+  height: 15px;
+  font-family: 'Figtree', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 2px;
+}
+
+.nav-item--basket-active .nav-icon {
+  color: #E76C1F;
 }
 
 .nav-cart-badge--hidden {
@@ -880,7 +884,7 @@ body {
 /* ===== MOBILE CART DIALOG ===== */
 .mobile-cart-dialog {
   border: none;
-  border-radius: 24px 24px 0 0;
+  border-radius: 30px 30px 0 0;
   padding: 0;
   width: 100%;
   max-width: 100%;
@@ -891,6 +895,7 @@ body {
   right: 0;
   margin: 0;
   overflow-y: auto;
+  background: #363534;
 }
 
 .mobile-cart-dialog::backdrop {
@@ -901,20 +906,20 @@ body {
 .dialog-header {
   position: sticky;
   top: 0;
-  background: var(--color-white);
+  background: #363534;
   padding: 20px 24px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
   z-index: 1;
 }
 
 .dialog-header h2 {
-  font-family: 'Figtree', sans-serif;
+  font-family: 'Palanquin', sans-serif;
   font-size: 20px;
   font-weight: 700;
-  color: var(--color-primary);
+  color: #FDEADC;
 }
 
 .dialog-close-btn {
@@ -938,8 +943,8 @@ body {
 }
 
 #cart-mobile-inner {
-  padding: 16px 16px 100px;
-  background: var(--color-white);
+  padding: 16px 22px 100px;
+  background: #363534;
   min-height: 100%;
 }
 
@@ -1029,18 +1034,18 @@ body {
 }
 
 .confirmation-card h3 {
-  font-family: 'Figtree', sans-serif;
-  font-weight: 800;
+  font-family: 'Palanquin', sans-serif;
+  font-weight: 700;
   font-size: 36px;
-  color: #FFFFFF;
+  color: #FDEADC;
   text-align: center;
 }
 
 .confirmation-card p {
-  font-family: 'Figtree', sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.75);
+  font-family: 'Palanquin', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #FDEADC;
   text-align: center;
 }
 

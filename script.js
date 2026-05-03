@@ -263,6 +263,8 @@ function updateCartUI() {
     badge.textContent = count;
     badge.classList.toggle('nav-cart-badge--hidden', count === 0);
   }
+  const basketBtn = document.querySelector('.nav-item--basket');
+  if (basketBtn) basketBtn.classList.toggle('nav-item--basket-active', count > 0);
   const totalEl = document.getElementById('mobile-cart-total');
   if (totalEl) totalEl.textContent = formatPrice(total);
   syncAddButtons();
