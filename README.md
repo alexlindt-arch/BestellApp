@@ -1,6 +1,6 @@
 # BurgerHouse – Food Ordering App
 
-A fully responsive food ordering web app built with vanilla HTML, CSS and JavaScript — inspired by platforms like Lieferando. Developed as part of the **Developer Akademie** curriculum.
+A fully responsive food ordering web app built with HTML, CSS and JavaScript — inspired by platforms like Lieferando. Developed as part of the **Developer Akademie** curriculum.
 
 **Live Demo:** [alexander-lindt.developerakademie.net/BestellApp](https://alexander-lindt.developerakademie.net/BestellApp/)
 
@@ -24,7 +24,7 @@ BurgerHouse lets you browse a restaurant menu, build your basket, and place an o
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 
-No frameworks, no build step, no dependencies — pure vanilla JS with CSS custom properties, Grid, and Flexbox.
+No frameworks, no build step, no dependencies — pure JS with CSS custom properties, Grid, and Flexbox.
 
 - **Fonts:** Figtree, Palanquin, Palanquin Dark (Google Fonts)
 - **Icons:** Custom SVG icons designed in Figma
