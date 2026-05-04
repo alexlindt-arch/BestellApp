@@ -29,6 +29,10 @@
   margin-bottom: 4px;
 }
 
+.category-slider:empty {
+  display: none;
+}
+
 .category-slider::-webkit-scrollbar {
   display: none;
 }
