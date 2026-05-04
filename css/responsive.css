@@ -106,39 +106,41 @@
     height: 60px;
     width: 100vw;
     margin-left: -20px;
-    padding: 0 16px 0 90px;
-    justify-content: flex-start;
+    padding: 0 16px;
+    justify-content: center;
     clip-path: none;
     overflow: visible;
   }
 
   .category-heading-icon {
+    position: relative;
+    top: auto;
+    transform: none;
+    left: auto;
+    flex-shrink: 0;
     width: 58px;
     height: 60px;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 16px;
     background-size: 346px 231px;
     background-position: -263px -24px;
   }
 
   .category-heading-icon--burger {
     bottom: auto;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 16px;
+    top: auto;
+    transform: none;
+    left: auto;
   }
 
   .category-heading-icon--pizza {
     width: 53px;
-    left: 16px;
+    left: auto;
     background-size: 254px 169px;
     background-position: -16px -9px;
   }
 
   .category-heading-icon--salat {
     width: 59px;
-    left: 16px;
+    left: auto;
     background-size: 320px 213px;
     background-position: -21px -117px;
   }
@@ -353,9 +355,6 @@
 @media (max-width: 374px) {
   .mobile-bottom-nav { gap: 44px; padding: 20px 16px; }
   .mobile-cart-dialog { width: calc(100vw - 24px); bottom: 88px; }
-  .category-heading-icon        { left: 16px; }
-  .category-heading-icon--pizza { left: 16px; }
-  .category-heading-icon--salat { left: 16px; }
 }
 
 /* ===== TINY MOBILE (320px) ===== */
@@ -364,9 +363,6 @@
   .mobile-bottom-nav { gap: 24px; padding: 20px 10px; }
   .nav-cart-badge { left: 12px; }
   .mobile-cart-dialog { width: calc(100vw - 16px); bottom: 86px; }
-  .category-heading-icon        { left: 16px; }
-  .category-heading-icon--pizza { left: 16px; }
-  .category-heading-icon--salat { left: 16px; }
   .dish-image-wrap { height: 80px; }
   .category-heading { font-size: 26px; }
 }
