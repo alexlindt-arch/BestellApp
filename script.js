@@ -44,14 +44,38 @@ const MENU_DATA = [
   },
 ];
 
+const DELETE_ICON_SVG = `<svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M1 4h14M6 4V2h4v2M2 4l1 12h10L14 4" stroke="#E76C1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+const CART_EMPTY_SVG = `<svg class="cart-empty-icon" viewBox="13 13 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.2067 37C19.546 37 18.9805 36.765 18.5101 36.295C18.0397 35.825 17.8044 35.26 17.8044 34.6C17.8044 33.94 18.0397 33.375 18.5101 32.905C18.9805 32.435 19.546 32.2 20.2067 32.2C20.8673 32.2 21.4328 32.435 21.9032 32.905C22.3737 33.375 22.6089 33.94 22.6089 34.6C22.6089 35.26 22.3737 35.825 21.9032 36.295C21.4328 36.765 20.8673 37 20.2067 37ZM32.2178 37C31.5571 37 30.9916 36.765 30.5212 36.295C30.0508 35.825 29.8155 35.26 29.8155 34.6C29.8155 33.94 30.0508 33.375 30.5212 32.905C30.9916 32.435 31.5571 32.2 32.2178 32.2C32.8784 32.2 33.4439 32.435 33.9143 32.905C34.3848 33.375 34.62 33.94 34.62 34.6C34.62 35.26 34.3848 35.825 33.9143 36.295C33.4439 36.765 32.8784 37 32.2178 37ZM19.1857 17.8L22.0684 23.8H30.4761L33.7792 17.8H19.1857ZM18.0447 15.4H35.761C36.2215 15.4 36.5718 15.605 36.812 16.015C37.0522 16.425 37.0622 16.84 36.842 17.26L32.5781 24.94C32.3579 25.34 32.0626 25.65 31.6923 25.87C31.3219 26.09 30.9166 26.2 30.4761 26.2H21.5279L20.2067 28.6H33.4189C33.7592 28.6 34.0444 28.715 34.2747 28.945C34.5049 29.175 34.62 29.46 34.62 29.8C34.62 30.14 34.5049 30.425 34.2747 30.655C34.0444 30.885 33.7592 31 33.4189 31H20.2067C19.3058 31 18.6252 30.605 18.1648 29.815C17.7043 29.025 17.6843 28.24 18.1047 27.46L19.7262 24.52L15.4022 15.4H14.2011C13.8608 15.4 13.5755 15.285 13.3453 15.055C13.1151 14.825 13 14.54 13 14.2C13 13.86 13.1151 13.575 13.3453 13.345C13.5755 13.115 13.8608 13 14.2011 13H16.1529C16.3731 13 16.5833 13.06 16.7835 13.18C16.9837 13.3 17.1338 13.47 17.2339 13.69L18.0447 15.4Z" fill="#FDEADC"/></svg>`;
+
 /* ===== STATE ===== */
 let cart = {};
 
 /* ===== INIT ===== */
 function init() {
   renderMenuSections();
+  renderCategoryNav();
+  renderRestaurantMeta();
   syncCarts();
   updateCartUI();
+  initScrollSpy();
+}
+
+/* ===== RENDER – RESTAURANT META ===== */
+function renderRestaurantMeta() {
+  const el = document.getElementById('restaurant-meta');
+  if (!el) return;
+  el.innerHTML = buildRestaurantMeta();
+}
+
+function buildRestaurantMeta() {
+  return `
+    <div class="meta-chips">
+      <span class="meta-chip">${RESTAURANT.deliveryTime}</span>
+      <span class="meta-chip">Delivery: ${formatPrice(RESTAURANT.deliveryPrice)}</span>
+      <span class="meta-chip">Min. order: ${formatPrice(RESTAURANT.minOrder)}</span>
+    </div>
+  `.trim();
 }
 
 /* ===== RENDER – CATEGORY NAV ===== */
@@ -136,13 +160,9 @@ function buildEmptyCart() {
   return `
     <div class="cart-empty">
       <p class="cart-empty-text">Nothing here yet.<br>Go ahead and choose something delicious!</p>
-      <div class="cart-empty-icon-wrap">
-        <svg class="cart-empty-icon" viewBox="13 13 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20.2067 37C19.546 37 18.9805 36.765 18.5101 36.295C18.0397 35.825 17.8044 35.26 17.8044 34.6C17.8044 33.94 18.0397 33.375 18.5101 32.905C18.9805 32.435 19.546 32.2 20.2067 32.2C20.8673 32.2 21.4328 32.435 21.9032 32.905C22.3737 33.375 22.6089 33.94 22.6089 34.6C22.6089 35.26 22.3737 35.825 21.9032 36.295C21.4328 36.765 20.8673 37 20.2067 37ZM32.2178 37C31.5571 37 30.9916 36.765 30.5212 36.295C30.0508 35.825 29.8155 35.26 29.8155 34.6C29.8155 33.94 30.0508 33.375 30.5212 32.905C30.9916 32.435 31.5571 32.2 32.2178 32.2C32.8784 32.2 33.4439 32.435 33.9143 32.905C34.3848 33.375 34.62 33.94 34.62 34.6C34.62 35.26 34.3848 35.825 33.9143 36.295C33.4439 36.765 32.8784 37 32.2178 37ZM19.1857 17.8L22.0684 23.8H30.4761L33.7792 17.8H19.1857ZM18.0447 15.4H35.761C36.2215 15.4 36.5718 15.605 36.812 16.015C37.0522 16.425 37.0622 16.84 36.842 17.26L32.5781 24.94C32.3579 25.34 32.0626 25.65 31.6923 25.87C31.3219 26.09 30.9166 26.2 30.4761 26.2H21.5279L20.2067 28.6H33.4189C33.7592 28.6 34.0444 28.715 34.2747 28.945C34.5049 29.175 34.62 29.46 34.62 29.8C34.62 30.14 34.5049 30.425 34.2747 30.655C34.0444 30.885 33.7592 31 33.4189 31H20.2067C19.3058 31 18.6252 30.605 18.1648 29.815C17.7043 29.025 17.6843 28.24 18.1047 27.46L19.7262 24.52L15.4022 15.4H14.2011C13.8608 15.4 13.5755 15.285 13.3453 15.055C13.1151 14.825 13 14.54 13 14.2C13 13.86 13.1151 13.575 13.3453 13.345C13.5755 13.115 13.8608 13 14.2011 13H16.1529C16.3731 13 16.5833 13.06 16.7835 13.18C16.9837 13.3 17.1338 13.47 17.2339 13.69L18.0447 15.4Z" fill="#FDEADC"/>
-        </svg>
-      </div>
+      <div class="cart-empty-icon-wrap">${CART_EMPTY_SVG}</div>
     </div>
-  `;
+  `.trim();
 }
 
 function buildCartList(items) {
@@ -151,32 +171,30 @@ function buildCartList(items) {
 
 function buildCartItem(entry) {
   const { dish, quantity } = entry;
-  const deleteIcon = `<svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M1 4h14M6 4V2h4v2M2 4l1 12h10L14 4" stroke="#E76C1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-
-  const cornerDelete = quantity > 1
-    ? `<button type="button" class="cart-item-delete cart-item-delete--corner" onclick="removeFromCart(${dish.id})" aria-label="Remove ${dish.name}">${deleteIcon}</button>`
-    : '';
-
-  const leftControl = quantity <= 1
-    ? `<button type="button" class="qty-btn-new qty-btn-new--as-delete" onclick="removeFromCart(${dish.id})" aria-label="Remove ${dish.name}">${deleteIcon}</button>`
-    : `<button type="button" class="qty-btn-new" onclick="updateQuantity(${dish.id}, -1)" aria-label="Decrease quantity">−</button>`;
-
   return `
     <li class="cart-item">
       <div class="cart-item-top">
         <span class="cart-item-name">${quantity} x ${dish.name}</span>
-        ${cornerDelete}
+        ${buildCornerDelete(dish, quantity)}
       </div>
       <div class="cart-item-bottom">
-        <div class="cart-qty-controls">
-          ${leftControl}
-          <span class="qty-display-new">${quantity}</span>
-          <button type="button" class="qty-btn-new" onclick="updateQuantity(${dish.id}, 1)" aria-label="Increase quantity">+</button>
-        </div>
+        <div class="cart-qty-controls">${buildQtyControls(dish, quantity)}</div>
         <span class="cart-item-price">${formatPrice(dish.price * quantity)}</span>
       </div>
     </li>
   `.trim();
+}
+
+function buildCornerDelete(dish, quantity) {
+  if (quantity <= 1) return '';
+  return `<button type="button" class="cart-item-delete cart-item-delete--corner" onclick="removeFromCart(${dish.id})" aria-label="Remove ${dish.name}">${DELETE_ICON_SVG}</button>`;
+}
+
+function buildQtyControls(dish, quantity) {
+  const leftBtn = quantity <= 1
+    ? `<button type="button" class="qty-btn-new qty-btn-new--as-delete" onclick="removeFromCart(${dish.id})" aria-label="Remove ${dish.name}">${DELETE_ICON_SVG}</button>`
+    : `<button type="button" class="qty-btn-new" onclick="updateQuantity(${dish.id}, -1)" aria-label="Decrease quantity">−</button>`;
+  return `${leftBtn}<span class="qty-display-new">${quantity}</span><button type="button" class="qty-btn-new" onclick="updateQuantity(${dish.id}, 1)" aria-label="Increase quantity">+</button>`;
 }
 
 function buildCartFooter() {
@@ -188,26 +206,40 @@ function buildCartFooter() {
     <div class="cart-footer">
       <div class="cart-footer-divider"></div>
       <div class="cart-footer-rows">
-        <div class="cart-footer-summary">
-          <div class="cart-footer-labels">
-            <span class="cart-footer-label">Subtotal</span>
-            <span class="cart-footer-label">Delivery fee</span>
-          </div>
-          <div class="cart-footer-values">
-            <span class="cart-footer-value">${formatPrice(subtotal)}</span>
-            <span class="cart-footer-value">${formatPrice(delivery)}</span>
-          </div>
-        </div>
-        <div class="cart-total-row">
-          <span class="cart-total-label">Total</span>
-          <span class="cart-total-value">${formatPrice(total)}</span>
-        </div>
-        <button type="button" class="order-btn" onclick="placeOrder()" ${!hasItems ? 'disabled' : ''}>
-          Buy now (${formatPrice(total)})
-        </button>
+        ${buildFooterSummary(subtotal, delivery)}
+        ${buildTotalRow(total)}
+        ${buildOrderButton(total, hasItems)}
       </div>
     </div>
   `.trim();
+}
+
+function buildFooterSummary(subtotal, delivery) {
+  return `
+    <div class="cart-footer-summary">
+      <div class="cart-footer-labels">
+        <span class="cart-footer-label">Subtotal</span>
+        <span class="cart-footer-label">Delivery fee</span>
+      </div>
+      <div class="cart-footer-values">
+        <span class="cart-footer-value">${formatPrice(subtotal)}</span>
+        <span class="cart-footer-value">${formatPrice(delivery)}</span>
+      </div>
+    </div>
+  `.trim();
+}
+
+function buildTotalRow(total) {
+  return `
+    <div class="cart-total-row">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-value">${formatPrice(total)}</span>
+    </div>
+  `.trim();
+}
+
+function buildOrderButton(total, hasItems) {
+  return `<button type="button" class="order-btn" onclick="placeOrder()" ${!hasItems ? 'disabled' : ''}>Buy now (${formatPrice(total)})</button>`;
 }
 
 /* ===== CART LOGIC ===== */
@@ -352,7 +384,6 @@ function setActiveCategory(catId) {
 }
 
 /* ===== SCROLL SPY ===== */
-// Automatically updates the active category link on scroll
 function initScrollSpy() {
   const sections = MENU_DATA
     .map(cat => document.getElementById('cat-' + cat.id))
@@ -374,7 +405,6 @@ function initScrollSpy() {
 }
 
 /* ===== BOOTSTRAP ===== */
-// Merged into a single DOMContentLoaded listener
 document.addEventListener('DOMContentLoaded', () => {
   const toggleBtn = document.getElementById('menu-toggle-btn');
   if (toggleBtn) toggleBtn.addEventListener('click', toggleMobileNav);

@@ -156,6 +156,30 @@ body {
   border-radius: 50%;
 }
 
+/* ===== RESTAURANT META CHIPS ===== */
+.restaurant-meta {
+  display: flex;
+  justify-content: center;
+}
+
+.meta-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.meta-chip {
+  background: var(--color-badge);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-family: 'Figtree', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
 /* ===== RESTAURANT INFO ===== */
 .restaurant-info {
   background: var(--color-white);
@@ -1231,6 +1255,13 @@ body {
     font-size: 22px;
     color: #363534;
     text-align: center;
+  }
+
+  .meta-chip {
+    font-family: 'Palanquin', sans-serif;
+    font-size: 15px;
+    color: #726D6D;
+    background: #FACAAC;
   }
 
   .rating-chip {
