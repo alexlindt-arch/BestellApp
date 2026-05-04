@@ -160,8 +160,8 @@
 }
 
 .dish-image-wrap {
-  width: 160px;
-  height: 110px;
+  width: 200px;
+  height: 140px;
   border-radius: 18px;
   flex-shrink: 0;
   overflow: hidden;
@@ -193,7 +193,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  min-height: 110px;
+  min-height: 140px;
 }
 
 .dish-info {
@@ -207,7 +207,7 @@
 .dish-name {
   font-family: 'Figtree', sans-serif;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 24px;
   line-height: 120%;
   color: var(--color-primary);
 }
@@ -215,7 +215,7 @@
 .dish-description {
   font-family: 'Figtree', sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 140%;
   color: var(--color-text-muted);
   display: -webkit-box;
@@ -237,7 +237,7 @@
 .dish-price {
   font-family: 'Figtree', sans-serif;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 22px;
   color: var(--color-primary);
   white-space: nowrap;
 }
