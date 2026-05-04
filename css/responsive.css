@@ -104,7 +104,7 @@
     font-family: 'Palanquin', sans-serif;
     font-size: 32px;
     height: 60px;
-    width: calc(100% + 40px);
+    width: 100vw;
     margin-left: -20px;
     padding: 0 16px;
     justify-content: center;

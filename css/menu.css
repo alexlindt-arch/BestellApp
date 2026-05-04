@@ -79,8 +79,8 @@
   color: var(--color-white);
   background: var(--color-primary);
   height: 60px;
-  width: calc(100% + var(--layout-side-padding));
-  margin-left: calc(-1 * var(--layout-side-padding));
+  width: 100vw;
+  margin-left: min(-40px, calc(680px - 50vw));
   padding: 0 24px 0 280px;
   display: flex;
   align-items: center;
