@@ -1,0 +1,69 @@
+/* ===== RESTAURANT INFO ===== */
+.restaurant-info {
+  background: var(--color-white);
+  padding: 110px 0 36px;
+}
+
+.restaurant-info-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.ri-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.restaurant-name {
+  font-family: 'Figtree', sans-serif;
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 110%;
+}
+
+.name-burger {
+  color: #E76C1F;
+}
+
+.name-house {
+  color: #1A1A1A;
+}
+
+.rating-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-badge);
+  border-radius: 20px;
+  padding: 5px 12px;
+  flex-shrink: 0;
+}
+
+.rating-score {
+  font-family: 'Figtree', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--color-primary);
+}
+
+.rating-count {
+  font-family: 'Figtree', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.restaurant-description {
+  font-family: 'Figtree', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 140%;
+  text-align: center;
+  color: #1A1A1A;
+}

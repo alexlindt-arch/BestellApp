@@ -1,0 +1,35 @@
+/* ===== VARIABLES & RESET ===== */
+:root {
+  --header-height: 80px;
+  --category-nav-height: 48px;
+  --color-primary: #E76C1F;
+  --color-bg: #FFFFFF;
+  --color-white: #FFFFFF;
+  --color-text: #E76C1F;
+  --color-text-muted: #9B6040;
+  --color-border: #E8D0BC;
+  --color-card: #FDEADC;
+  --color-badge: #FDEADC;
+  --max-width: 1440px;
+  --cart-width: 435px;
+  --side-padding: 80px;
+  --layout-side-padding: 40px;
+  --radius-card: 30px;
+  --radius-btn: 50px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Figtree', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-width: 320px;
+  line-height: 1.5;
+}

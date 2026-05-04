@@ -1,0 +1,377 @@
+/* ===== TABLET ===== */
+@media (max-width: 1100px) {
+  :root {
+    --side-padding: 40px;
+    --cart-width: 340px;
+  }
+
+  .hero-section { height: 340px; }
+  .restaurant-logo-badge { bottom: -65px; }
+  .restaurant-info { padding: 90px 0 30px; }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --cart-width: 280px;
+    --layout-side-padding: 24px;
+  }
+
+  .hero-section { height: 280px; }
+  .restaurant-logo-badge { bottom: -60px; }
+  .restaurant-info { padding: 80px 0 24px; }
+  .main-layout { gap: 16px; padding: 24px 24px; }
+
+  .dish-image-wrap {
+    width: 110px;
+    height: 85px;
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 79px;
+    --side-padding: 16px;
+    --layout-side-padding: 20px;
+  }
+
+  /* Header */
+  .site-header { height: 79px; }
+  .header-inner { padding: 0 16px; }
+
+  /* Hero / Badge */
+  .hero-section { height: 240px; }
+
+  .restaurant-logo-badge {
+    width: 120px;
+    height: 120px;
+    bottom: -60px;
+    border: 13px solid #FDEADC;
+    box-shadow: 2px 4px 4px 0px rgba(0,0,0,0.25);
+  }
+
+  /* Restaurant Info */
+  .restaurant-info { padding: 80px 0 24px; }
+  .restaurant-info-inner { gap: 8px; }
+
+  .restaurant-name {
+    font-family: 'Palanquin Dark', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .name-burger, .name-house { color: #363534; }
+
+  .restaurant-description {
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #363534;
+    text-align: center;
+  }
+
+  .rating-chip {
+    background: #FACAAC;
+    border-radius: 4px;
+    padding: 4px 5px;
+    gap: 8px;
+  }
+
+  .rating-star-icon path { fill: #363534; }
+
+  .rating-score {
+    font-family: 'Palanquin Dark', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #363534;
+  }
+
+  .rating-count {
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #726D6D;
+  }
+
+  /* Category Heading */
+  .dish-section {
+    padding-top: 44px;
+    margin-top: -28px;
+  }
+
+  .category-heading {
+    font-family: 'Palanquin', sans-serif;
+    font-size: 32px;
+    height: 60px;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    padding: 0 16px;
+    justify-content: center;
+    clip-path: none;
+    overflow: visible;
+  }
+
+  .category-heading-icon {
+    width: 58px;
+    height: 60px;
+    top: -37px;
+    transform: none;
+    left: 159px;
+    background-size: 346px 231px;
+    background-position: -263px -24px;
+  }
+
+  .category-heading-icon--pizza {
+    width: 53px;
+    left: 161px;
+    background-size: 254px 169px;
+    background-position: -16px -9px;
+  }
+
+  .category-heading-icon--salat {
+    width: 59px;
+    left: 157px;
+    background-size: 320px 213px;
+    background-position: -21px -117px;
+  }
+
+  /* Dish cards – vertical layout */
+  .main-layout { padding: 16px 20px; }
+  .dish-section { gap: 16px; }
+  .dish-list { gap: 16px; }
+
+  .dish-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+    border-radius: 12px;
+    gap: 16px;
+  }
+
+  .dish-image-wrap {
+    width: 100%;
+    height: 86px;
+    border-radius: 12px;
+  }
+
+  .dish-image { border-radius: 0; }
+
+  .dish-content {
+    flex-direction: column;
+    min-height: unset;
+    gap: 8px;
+  }
+
+  .dish-info { gap: 8px; }
+
+  .dish-name {
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: #363534;
+  }
+
+  .dish-description {
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #363534;
+    -webkit-line-clamp: 3;
+  }
+
+  .dish-right {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: unset;
+    gap: 8px;
+    padding: 8px 0;
+  }
+
+  .dish-price {
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: #363534;
+  }
+
+  /* Add button – white box so it's visible on the cream card */
+  .add-btn {
+    background: #FFFFFF;
+    border: 2px solid var(--color-primary);
+    color: #363534;
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 5px 8px;
+    height: 30px;
+  }
+
+  .add-btn--added {
+    background: #FFFFFF;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  /* Cart / Nav */
+  .cart-wrapper { display: none; }
+  .mobile-bottom-nav { display: flex; }
+  body { padding-bottom: 78px; }
+
+  /* Mobile cart items */
+  .cart-item {
+    background: #FDEADC;
+    border-radius: 20px;
+    padding: 20px;
+    gap: 8px;
+  }
+
+  .cart-item-top {
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .cart-item-name {
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 120%;
+    color: #363534;
+  }
+
+  .cart-item-delete--corner {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .cart-item-bottom {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cart-qty-controls {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    gap: 8px;
+  }
+
+  .qty-btn-new {
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 120%;
+    color: #363534;
+    width: auto;
+    height: auto;
+  }
+
+  .qty-btn-new--as-delete {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .qty-display-new {
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 120%;
+    color: #363534;
+    width: auto;
+  }
+
+  .cart-item-price {
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 120%;
+    color: #363534;
+  }
+
+  /* Footer */
+  .site-footer {
+    min-height: 128px;
+    padding: 32px 0;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .footer-copyright {
+    gap: 4px;
+    order: 3;
+  }
+
+  .footer-links > a:nth-child(2) { order: 1; }
+  .footer-links > a:nth-child(3) { order: 2; }
+
+  .footer-text,
+  .footer-link {
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #FFFFFF;
+  }
+}
+
+/* ===== LARGE MOBILE (480px) ===== */
+@media (max-width: 480px) and (min-width: 375px) {
+  .dish-image-wrap { height: 90px; }
+  .mobile-cart-dialog { bottom: 90px; }
+}
+
+/* ===== SMALL MOBILE (374px) ===== */
+@media (max-width: 374px) {
+  .mobile-bottom-nav { gap: 44px; padding: 20px 16px; }
+  .mobile-cart-dialog { width: calc(100vw - 24px); bottom: 88px; }
+  .category-heading-icon        { left: 130px; }
+  .category-heading-icon--pizza { left: 132px; }
+  .category-heading-icon--salat { left: 128px; }
+}
+
+/* ===== TINY MOBILE (320px) ===== */
+@media (max-width: 320px) {
+  .main-layout { padding: 12px; }
+  .mobile-bottom-nav { gap: 24px; padding: 20px 10px; }
+  .nav-cart-badge { left: 12px; }
+  .mobile-cart-dialog { width: calc(100vw - 16px); bottom: 86px; }
+  .category-heading-icon        { left: 108px; }
+  .category-heading-icon--pizza { left: 110px; }
+  .category-heading-icon--salat { left: 106px; }
+  .dish-image-wrap { height: 80px; }
+  .category-heading { font-size: 26px; }
+}
+
+/* ===== LANDSCAPE PHONE ===== */
+@media (max-height: 500px) and (max-width: 900px) {
+  .hero-section { height: 150px; }
+  .restaurant-logo-badge { width: 90px; height: 90px; bottom: -45px; border-width: 10px; }
+  .restaurant-info { padding: 56px 0 16px; }
+  .restaurant-name { font-size: 28px; }
+  .restaurant-description { font-size: 16px; }
+  .mobile-cart-dialog { max-height: calc(100vh - 100px); bottom: 86px; }
+  body { padding-bottom: 70px; }
+  .mobile-bottom-nav { height: 62px; padding: 12px 25px; }
+}
