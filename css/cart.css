@@ -5,6 +5,7 @@
   align-self: flex-start;
   position: sticky;
   top: calc(var(--header-height) + 16px);
+  z-index: 20;
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 

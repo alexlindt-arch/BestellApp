@@ -37,9 +37,9 @@
   color: var(--color-white);
   background: var(--color-primary);
   height: 60px;
-  width: calc(100% + 40px + max(0px, (100vw - var(--max-width)) / 2));
-  margin-left: calc(-40px - max(0px, (100vw - var(--max-width)) / 2));
-  padding: 0 24px 0 280px;
+  width: calc(100% + 2 * var(--layout-side-padding) + var(--cart-width) + 28px + max(0px, 100vw - var(--max-width)));
+  margin-left: calc(-1 * var(--layout-side-padding) - max(0px, (100vw - var(--max-width)) / 2));
+  padding: 0 24px 0 calc(var(--layout-side-padding) + 280px + max(0px, (100vw - var(--max-width)) / 2));
   display: flex;
   align-items: center;
   gap: 12px;
@@ -70,7 +70,7 @@
 }
 
 .category-heading-icon--burger {
-  left: 167px;
+  left: calc(var(--layout-side-padding) + 167px + max(0px, (100vw - var(--max-width)) / 2));
   bottom: 0;
   top: auto;
   transform: none;
@@ -79,14 +79,14 @@
 }
 
 .category-heading-icon--pizza {
-  left: 168px;
+  left: calc(var(--layout-side-padding) + 168px + max(0px, (100vw - var(--max-width)) / 2));
   width: 81px;
   background-size: 385px 257px;
   background-position: -24px -14px;
 }
 
 .category-heading-icon--salat {
-  left: 167px;
+  left: calc(var(--layout-side-padding) + 167px + max(0px, (100vw - var(--max-width)) / 2));
   width: 89px;
   background-size: 453px 302px;
   background-position: -27px -163px;
