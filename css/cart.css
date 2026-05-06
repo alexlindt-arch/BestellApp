@@ -2,7 +2,9 @@
 .cart-wrapper {
   width: var(--cart-width);
   flex-shrink: 0;
-  align-self: stretch;
+  align-self: flex-start;
+  position: sticky;
+  top: calc(var(--header-height) + 16px);
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
@@ -13,8 +15,6 @@
 }
 
 .cart-desktop {
-  position: sticky;
-  top: calc(var(--header-height) + 16px);
   background: #726D6D;
   border-radius: var(--radius-card);
   border: 2px solid #726D6D;

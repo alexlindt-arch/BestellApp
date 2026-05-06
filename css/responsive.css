@@ -21,6 +21,11 @@
   .restaurant-info { padding: 80px 0 24px; }
   .main-layout { gap: 16px; padding: 24px 24px; }
 
+  .category-heading {
+    width: calc(100% + 24px);
+    margin-left: -24px;
+  }
+
   .dish-image-wrap {
     width: 110px;
     height: 85px;
@@ -102,7 +107,7 @@
 
   .category-heading {
     font-family: 'Palanquin', sans-serif;
-    font-size: 32px;
+    font-size: 26px;
     height: 60px;
     width: 100vw;
     margin-left: -20px;
@@ -129,6 +134,8 @@
     top: auto;
     transform: none;
     left: auto;
+    background-size: 323px 215px;
+    background-position: -243px -20px;
   }
 
   .category-heading-icon--pizza {
@@ -141,9 +148,11 @@
   .category-heading-icon--salat {
     width: 59px;
     left: auto;
-    background-size: 320px 213px;
-    background-position: -21px -117px;
+    background-size: 238px 159px;
+    background-position: -8px -79px;
   }
+
+  .cat-subtitle { display: none; }
 
   /* Dish cards – vertical layout */
   .main-layout { padding: 16px 20px; }
@@ -164,7 +173,10 @@
     border-radius: 12px;
   }
 
-  .dish-image { border-radius: 0; }
+  .dish-image {
+    border-radius: 0;
+    transform: none;
+  }
 
   .dish-content {
     flex-direction: column;

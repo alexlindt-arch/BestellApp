@@ -1,3 +1,28 @@
+/* ===== CUSTOM SCROLLBAR ===== */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #E76C1F #FDEADC;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FDEADC;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E76C1F;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c55a15;
+}
+
 /* ===== VARIABLES & RESET ===== */
 :root {
   --header-height: 80px;
