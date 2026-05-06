@@ -62,8 +62,10 @@
   .restaurant-name {
     font-family: 'Palanquin Dark', sans-serif;
     font-weight: 700;
-    font-size: 40px;
+    font-size: clamp(26px, 9vw, 40px);
     text-align: center;
+    max-width: 100%;
+    overflow-wrap: break-word;
   }
 
   .name-burger, .name-house { color: #363534; }
@@ -109,7 +111,7 @@
     font-family: 'Palanquin', sans-serif;
     font-size: 26px;
     height: 60px;
-    width: 100vw;
+    width: calc(100% + 40px);
     margin-left: -20px;
     padding: 0 16px;
     justify-content: center;

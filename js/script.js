@@ -8,6 +8,20 @@ function init() {
   updateCartUI();
 }
 
+/* ===== MENU RENDER ===== */
+function renderMenuSections() {
+  const container = document.getElementById('menu-container');
+  container.innerHTML = MENU_DATA.map(renderCategorySection).join('');
+}
+
+/* ===== CART RENDER ===== */
+function syncCarts() {
+  const items = Object.values(cart);
+  const html = buildCartHTML(items, RESTAURANT.deliveryPrice);
+  document.getElementById('cart-desktop').innerHTML = html;
+  document.getElementById('cart-mobile-inner').innerHTML = html;
+}
+
 /* ===== CART LOGIC ===== */
 function addToCart(dishId) {
   const dish = findDish(dishId);

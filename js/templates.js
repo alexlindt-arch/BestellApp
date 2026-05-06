@@ -1,9 +1,4 @@
-/* ===== MENU SECTIONS ===== */
-function renderMenuSections() {
-  const container = document.getElementById('menu-container');
-  container.innerHTML = MENU_DATA.map(renderCategorySection).join('');
-}
-
+/* ===== MENU SECTION TEMPLATES ===== */
 function formatCategoryHeading(name) {
   return name
     .replace(/(\s*)(\([^)]+\))$/, '<span class="category-heading-sub">$1$2</span>')
@@ -47,15 +42,8 @@ function renderDishCard(dish) {
   `.trim();
 }
 
-/* ===== CART HTML ===== */
-function syncCarts() {
-  const html = buildCartHTML();
-  document.getElementById('cart-desktop').innerHTML = html;
-  document.getElementById('cart-mobile-inner').innerHTML = html;
-}
-
-function buildCartHTML() {
-  const items = Object.values(cart);
+/* ===== CART TEMPLATES ===== */
+function buildCartHTML(items, delivery) {
   if (items.length === 0) {
     return `
       <div class="cart-header">
@@ -64,12 +52,13 @@ function buildCartHTML() {
       <div class="cart-items-scroll">${buildEmptyCart()}</div>
     `.trim();
   }
+  const subtotal = items.reduce((sum, { dish, quantity }) => sum + dish.price * quantity, 0);
   return `
     <div class="cart-header">
       <h2 class="cart-title">Your Basket</h2>
     </div>
     <div class="cart-items-scroll">${buildCartList(items)}</div>
-    ${buildCartFooter()}
+    ${buildCartFooter(subtotal, delivery)}
   `.trim();
 }
 
@@ -120,9 +109,7 @@ function buildCartItem(entry) {
   `.trim();
 }
 
-function buildCartFooter() {
-  const subtotal = getCartTotal();
-  const delivery = RESTAURANT.deliveryPrice;
+function buildCartFooter(subtotal, delivery) {
   const total = subtotal + delivery;
   return `
     <div class="cart-footer">
