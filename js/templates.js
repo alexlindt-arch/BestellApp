@@ -49,7 +49,7 @@ function buildCartHTML(items, subtotal, delivery, total) {
       <div class="cart-header">
         <h2 class="cart-title">Your Basket</h2>
       </div>
-      <div class="cart-items-scroll">${buildEmptyCart()}</div>
+      ${buildEmptyCart()}
     `.trim();
   }
   return `
