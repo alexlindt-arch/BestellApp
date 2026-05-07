@@ -340,13 +340,11 @@
 /* ===== LARGE MOBILE (480px) ===== */
 @media (max-width: 480px) and (min-width: 375px) {
   .dish-image-wrap { height: 150px; }
-  .mobile-cart-dialog { bottom: 90px; }
 }
 
 /* ===== SMALL MOBILE (374px) ===== */
 @media (max-width: 374px) {
   .mobile-bottom-nav { gap: 44px; padding: 20px 16px; }
-  .mobile-cart-dialog { width: calc(100vw - 24px); bottom: 88px; }
 }
 
 /* ===== TINY MOBILE (320px) ===== */
@@ -354,7 +352,6 @@
   .main-layout { padding: 12px; }
   .mobile-bottom-nav { gap: 24px; padding: 20px 10px; }
   .nav-cart-badge { left: 12px; }
-  .mobile-cart-dialog { width: calc(100vw - 16px); bottom: 86px; }
   .dish-image-wrap { height: 80px; }
   .category-heading { font-size: 26px; }
 }
@@ -366,7 +363,7 @@
   .restaurant-info { padding: 56px 0 16px; }
   .restaurant-name { font-size: 28px; }
   .restaurant-description { font-size: 16px; }
-  .mobile-cart-dialog { max-height: calc(100vh - 100px); bottom: 86px; }
+  .mobile-cart-dialog { height: calc(100dvh - 62px); max-height: calc(100dvh - 62px); bottom: 62px; }
   body { padding-bottom: 70px; }
   .mobile-bottom-nav { height: 62px; padding: 12px 25px; }
 }
