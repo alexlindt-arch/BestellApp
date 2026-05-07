@@ -63,5 +63,5 @@ body {
 .page-wrapper {
   max-width: var(--max-width);
   margin: 0 auto;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
