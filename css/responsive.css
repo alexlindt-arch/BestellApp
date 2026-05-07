@@ -219,6 +219,7 @@
   .cart-wrapper { display: none; }
   .mobile-bottom-nav { display: flex; }
   body { padding-bottom: 78px; }
+  .cart-items-scroll { max-height: none; }
 
   /* Mobile cart items */
   .cart-item {

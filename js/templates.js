@@ -6,26 +6,23 @@ function formatCategoryHeading(name) {
 }
 
 function renderCategorySection(cat) {
-  const iconHTML = cat.icon
-    ? `<div class="category-heading-icon category-heading-icon--${cat.id}" aria-hidden="true" style="background-image:url('${cat.icon}')"></div>`
-    : '';
   return `
     <section id="cat-${cat.id}" class="dish-section">
-      <h2 class="category-heading">${iconHTML}<span class="category-heading-text">${formatCategoryHeading(cat.name)}</span></h2>
+      <h2 class="category-heading">
+        <div class="category-heading-icon category-heading-icon--${cat.id}" aria-hidden="true" style="background-image:url('${cat.icon}')"></div>
+        <span class="category-heading-text">${formatCategoryHeading(cat.name)}</span>
+      </h2>
       <div class="dish-list">
         ${cat.items.map(renderDishCard).join('')}
       </div>
     </section>
-  `.trim();
+  `;
 }
 
 function renderDishCard(dish) {
-  const imageHTML = dish.image
-    ? `<div class="dish-image-wrap"><img class="dish-image" src="${dish.image}" alt="${dish.name}" loading="eager" fetchpriority="high" /></div>`
-    : '';
   return `
     <div class="dish-card">
-      ${imageHTML}
+      <div class="dish-image-wrap"><img class="dish-image" src="${dish.image}" alt="${dish.name}" loading="lazy" /></div>
       <div class="dish-content">
         <div class="dish-info">
           <span class="dish-name">${dish.name}</span>
@@ -39,7 +36,7 @@ function renderDishCard(dish) {
         </div>
       </div>
     </div>
-  `.trim();
+  `;
 }
 
 /* ===== CART TEMPLATES ===== */
@@ -50,7 +47,7 @@ function buildCartHTML(items, subtotal, delivery, total) {
         <h2 class="cart-title">Your Basket</h2>
       </div>
       ${buildEmptyCart()}
-    `.trim();
+    `;
   }
   return `
     <div class="cart-header">
@@ -58,7 +55,7 @@ function buildCartHTML(items, subtotal, delivery, total) {
     </div>
     <div class="cart-items-scroll">${buildCartList(items)}</div>
     ${buildCartFooter(subtotal, delivery, total)}
-  `.trim();
+  `;
 }
 
 function buildEmptyCart() {
@@ -94,7 +91,7 @@ function cartItemTemplate(dish, quantity, cornerDelete, leftControl, price) {
         <span class="cart-item-price">${price}</span>
       </div>
     </li>
-  `.trim();
+  `;
 }
 
 function buildCartFooter(subtotal, delivery, total) {
@@ -121,5 +118,5 @@ function buildCartFooter(subtotal, delivery, total) {
         </button>
       </div>
     </div>
-  `.trim();
+  `;
 }

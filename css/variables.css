@@ -60,8 +60,3 @@ body {
   overflow-x: clip;
 }
 
-.page-wrapper {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  overflow-x: clip;
-}

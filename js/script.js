@@ -140,11 +140,6 @@ function closeOrderConfirmation() {
 }
 
 /* ===== NAVIGATION ===== */
-function toggleMobileNav() {
-  const nav = document.querySelector('.header-nav');
-  if (nav) nav.classList.toggle('open');
-}
-
 function openMobileCart() {
   document.getElementById('mobile-cart-dialog').showModal();
 }
@@ -169,7 +164,5 @@ function formatPrice(price) {
 
 /* ===== BOOTSTRAP ===== */
 document.addEventListener('DOMContentLoaded', () => {
-  const toggleBtn = document.getElementById('menu-toggle-btn');
-  if (toggleBtn) toggleBtn.addEventListener('click', toggleMobileNav);
   init();
 });
