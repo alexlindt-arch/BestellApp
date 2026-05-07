@@ -21,7 +21,7 @@
   border: 2px solid #726D6D;
   box-shadow: 0 4px 24px rgba(231, 108, 31, 0.1);
   padding: 28px 24px 24px;
-  width: 435px;
+  width: 100%;
   max-height: calc(100vh - var(--header-height) - 32px);
   overflow: hidden;
   display: flex;
