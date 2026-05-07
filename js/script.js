@@ -21,9 +21,27 @@ function syncCarts() {
   const subtotal = getCartTotal();
   const delivery = RESTAURANT.deliveryPrice;
   const total = subtotal + delivery;
-  const html = buildCartHTML(items, subtotal, delivery, total);
-  document.getElementById('cart-desktop').innerHTML = html;
-  document.getElementById('cart-mobile-inner').innerHTML = html;
+  renderCart('cart-desktop', items, subtotal, delivery, total);
+  renderCart('cart-mobile-inner', items, subtotal, delivery, total);
+}
+
+function renderCart(containerId, items, subtotal, delivery, total) {
+  const container = document.getElementById(containerId);
+  const scrollEl = container.querySelector('.cart-items-scroll');
+  const savedScroll = scrollEl ? scrollEl.scrollTop : 0;
+  container.innerHTML = buildCartContent(items, subtotal, delivery, total);
+  const newScrollEl = container.querySelector('.cart-items-scroll');
+  if (newScrollEl) newScrollEl.scrollTop = savedScroll;
+}
+
+function buildCartContent(items, subtotal, delivery, total) {
+  if (items.length === 0) {
+    return buildCartHTML(buildEmptyCart(), '');
+  }
+  return buildCartHTML(
+    `<div class="cart-items-scroll">${buildCartList(items)}</div>`,
+    buildCartFooter(subtotal, delivery, total)
+  );
 }
 
 function buildCartItemHtml(entry) {
@@ -142,6 +160,7 @@ function closeOrderConfirmation() {
 /* ===== NAVIGATION ===== */
 function openMobileCart() {
   document.getElementById('mobile-cart-dialog').showModal();
+  document.body.classList.add('no-scroll');
 }
 
 function closeMobileCart() {
@@ -165,4 +184,7 @@ function formatPrice(price) {
 /* ===== BOOTSTRAP ===== */
 document.addEventListener('DOMContentLoaded', () => {
   init();
+  document.getElementById('mobile-cart-dialog').addEventListener('close', () => {
+    document.body.classList.remove('no-scroll');
+  });
 });

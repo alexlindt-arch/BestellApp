@@ -220,7 +220,15 @@
   .cart-wrapper { display: none; }
   .mobile-bottom-nav { display: flex; }
   body { padding-bottom: 78px; }
-  .cart-items-scroll { max-height: none; }
+
+  /* Mobile cart dialog: items scroll, footer always visible */
+  #cart-mobile-inner .cart-header { display: none; }
+  #cart-mobile-inner .cart-items-scroll {
+    flex: 1;
+    min-height: 0;
+    max-height: none;
+  }
+  #cart-mobile-inner .cart-empty { flex: 1; }
 
   /* Mobile cart items */
   .cart-item {

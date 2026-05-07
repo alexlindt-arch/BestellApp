@@ -40,21 +40,13 @@ function renderDishCard(dish) {
 }
 
 /* ===== CART TEMPLATES ===== */
-function buildCartHTML(items, subtotal, delivery, total) {
-  if (items.length === 0) {
-    return `
-      <div class="cart-header">
-        <h2 class="cart-title">Your Basket</h2>
-      </div>
-      ${buildEmptyCart()}
-    `;
-  }
+function buildCartHTML(contentHTML, footerHTML) {
   return `
     <div class="cart-header">
       <h2 class="cart-title">Your Basket</h2>
     </div>
-    <div class="cart-items-scroll">${buildCartList(items)}</div>
-    ${buildCartFooter(subtotal, delivery, total)}
+    ${contentHTML}
+    ${footerHTML}
   `;
 }
 
