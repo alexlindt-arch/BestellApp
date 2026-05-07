@@ -13,51 +13,9 @@
   min-width: 0;
 }
 
-/* ===== CATEGORY SLIDER ===== */
-.category-slider {
-  position: sticky;
-  top: var(--header-height);
-  z-index: 100;
-  background: var(--color-primary);
-  border-radius: 16px 16px 0 0;
-  display: flex;
-  overflow-x: auto;
-  overflow-y: visible;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  padding: 0 8px;
-  margin-bottom: 4px;
-}
-
-.category-slider:empty {
-  display: none;
-}
-
-.category-slider::-webkit-scrollbar {
-  display: none;
-}
-
-.category-link {
-  display: block;
-  padding: 14px 20px;
-  font-family: 'Figtree', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.65);
-  text-decoration: none;
-  white-space: nowrap;
-  transition: color 0.2s;
-  cursor: pointer;
-}
-
-.category-link:hover,
-.category-link.active {
-  color: #FFFFFF;
-}
-
 /* ===== DISH SECTION ===== */
 .dish-section {
-  scroll-margin-top: calc(var(--header-height) + var(--category-nav-height) + 16px);
+  scroll-margin-top: calc(var(--header-height) + 16px);
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -79,9 +37,9 @@
   color: var(--color-white);
   background: var(--color-primary);
   height: 60px;
-  width: 100vw;
-  margin-left: min(-40px, calc(680px - 50vw));
-  padding: 0 24px 0 280px;
+  width: calc(100% + 2 * var(--layout-side-padding) + var(--cart-width) + 28px + max(0px, 100vw - var(--max-width)));
+  margin-left: calc(-1 * var(--layout-side-padding) - max(0px, (100vw - var(--max-width)) / 2));
+  padding: 0 24px 0 calc(var(--layout-side-padding) + 280px + max(0px, (100vw - var(--max-width)) / 2));
   display: flex;
   align-items: center;
   gap: 12px;
@@ -112,7 +70,7 @@
 }
 
 .category-heading-icon--burger {
-  left: 167px;
+  left: calc(var(--layout-side-padding) + 167px + max(0px, (100vw - var(--max-width)) / 2));
   bottom: 0;
   top: auto;
   transform: none;
@@ -121,14 +79,14 @@
 }
 
 .category-heading-icon--pizza {
-  left: 168px;
+  left: calc(var(--layout-side-padding) + 168px + max(0px, (100vw - var(--max-width)) / 2));
   width: 81px;
   background-size: 385px 257px;
   background-position: -24px -14px;
 }
 
 .category-heading-icon--salat {
-  left: 167px;
+  left: calc(var(--layout-side-padding) + 167px + max(0px, (100vw - var(--max-width)) / 2));
   width: 89px;
   background-size: 453px 302px;
   background-position: -27px -163px;

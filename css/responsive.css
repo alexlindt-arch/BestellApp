@@ -10,7 +10,7 @@
   .restaurant-info { padding: 90px 0 30px; }
 }
 
-/* ===== MOBILE (inkl. Tablet bis iPad Air) ===== */
+/* ===== MOBILE (inkl. Tablet bis iPad Air 820px) ===== */
 @media (max-width: 900px) {
   :root {
     --header-height: 79px;
@@ -40,8 +40,10 @@
   .restaurant-name {
     font-family: 'Palanquin Dark', sans-serif;
     font-weight: 700;
-    font-size: 40px;
+    font-size: clamp(26px, 9vw, 40px);
     text-align: center;
+    max-width: 100%;
+    overflow-wrap: break-word;
   }
 
   .name-burger, .name-house { color: #363534; }
@@ -85,9 +87,9 @@
 
   .category-heading {
     font-family: 'Palanquin', sans-serif;
-    font-size: 32px;
+    font-size: 26px;
     height: 60px;
-    width: 100vw;
+    width: calc(100% + 40px);
     margin-left: -20px;
     padding: 0 16px;
     justify-content: center;
@@ -112,6 +114,8 @@
     top: auto;
     transform: none;
     left: auto;
+    background-size: 323px 215px;
+    background-position: -243px -20px;
   }
 
   .category-heading-icon--pizza {
@@ -124,9 +128,11 @@
   .category-heading-icon--salat {
     width: 59px;
     left: auto;
-    background-size: 320px 213px;
-    background-position: -21px -117px;
+    background-size: 238px 159px;
+    background-position: -8px -79px;
   }
+
+  .cat-subtitle { display: none; }
 
   /* Dish cards – vertical layout */
   .main-layout { padding: 16px 20px; }
@@ -147,7 +153,10 @@
     border-radius: 12px;
   }
 
-  .dish-image { border-radius: 0; }
+  .dish-image {
+    border-radius: 0;
+    transform: none;
+  }
 
   .dish-content {
     flex-direction: column;

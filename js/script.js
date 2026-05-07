@@ -9,6 +9,13 @@ function init() {
   updateCartUI();
 }
 
+/* ===== MENU RENDER ===== */
+function renderMenuSections() {
+  const container = document.getElementById('menu-container');
+  container.innerHTML = MENU_DATA.map(renderCategorySection).join('');
+}
+
+/* ===== CART RENDER ===== */
 function syncCarts() {
   const items = Object.values(cart);
   const subtotal = getCartTotal();
@@ -19,7 +26,6 @@ function syncCarts() {
   document.getElementById('cart-mobile-inner').innerHTML = html;
 }
 
-/* ===== CART ITEM HTML BUILDER ===== */
 function buildCartItemHtml(entry) {
   const { dish, quantity } = entry;
   const deleteIcon = `<svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M1 4h14M6 4V2h4v2M2 4l1 12h10L14 4" stroke="#E76C1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
@@ -148,44 +154,6 @@ function closeMobileCart() {
   if (dialog.open) dialog.close();
 }
 
-function handleCategoryClick(event, catId) {
-  event.preventDefault();
-  scrollToCategory(catId);
-  setActiveCategory(catId);
-}
-
-function scrollToCategory(catId) {
-  const el = document.getElementById('cat-' + catId);
-  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function setActiveCategory(catId) {
-  document.querySelectorAll('.category-link').forEach(link => {
-    link.classList.toggle('active', link.id === 'nav-' + catId);
-  });
-}
-
-/* ===== SCROLL SPY ===== */
-function initScrollSpy() {
-  const sections = MENU_DATA
-    .map(cat => document.getElementById('cat-' + cat.id))
-    .filter(Boolean);
-  if (!sections.length) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        setActiveCategory(entry.target.id.replace('cat-', ''));
-      }
-    });
-  }, {
-    rootMargin: '-148px 0px -60% 0px',
-    threshold: 0,
-  });
-
-  sections.forEach(section => observer.observe(section));
-}
-
 /* ===== UTILS ===== */
 function findDish(dishId) {
   for (const cat of MENU_DATA) {
@@ -204,5 +172,4 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggleBtn = document.getElementById('menu-toggle-btn');
   if (toggleBtn) toggleBtn.addEventListener('click', toggleMobileNav);
   init();
-  initScrollSpy();
 });

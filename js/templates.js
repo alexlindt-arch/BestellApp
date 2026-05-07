@@ -1,23 +1,8 @@
-/* ===== CATEGORY NAV ===== */
-function renderCategoryNav() {
-  const nav = document.getElementById('category-nav');
-  if (!nav) return;
-  nav.innerHTML = MENU_DATA.map((cat, i) => categoryNavItem(cat, i === 0)).join('');
-}
-
-function categoryNavItem(cat, isActive) {
-  const activeClass = isActive ? ' active' : '';
-  return `<a href="#cat-${cat.id}" class="category-link${activeClass}" id="nav-${cat.id}" onclick="handleCategoryClick(event, '${cat.id}')">${cat.name}</a>`;
-}
-
-/* ===== MENU SECTIONS ===== */
-function renderMenuSections() {
-  const container = document.getElementById('menu-container');
-  container.innerHTML = MENU_DATA.map(renderCategorySection).join('');
-}
-
+/* ===== MENU SECTION TEMPLATES ===== */
 function formatCategoryHeading(name) {
-  return name.replace(/(\s*)(\([^)]+\))$/, '<span class="category-heading-sub">$1$2</span>');
+  return name
+    .replace(/(\s*)(\([^)]+\))$/, '<span class="category-heading-sub">$1$2</span>')
+    .replace(/( & .*)$/, '<span class="cat-subtitle">$1</span>');
 }
 
 function renderCategorySection(cat) {
@@ -57,7 +42,7 @@ function renderDishCard(dish) {
   `.trim();
 }
 
-/* ===== CART HTML ===== */
+/* ===== CART TEMPLATES ===== */
 function buildCartHTML(items, subtotal, delivery, total) {
   if (items.length === 0) {
     return `
