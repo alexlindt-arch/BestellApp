@@ -22,7 +22,6 @@
   box-shadow: 0 4px 24px rgba(231, 108, 31, 0.1);
   padding: 28px 24px 24px;
   width: 435px;
-  height: min(440px, calc(100vh - var(--header-height) - 32px));
   max-height: calc(100vh - var(--header-height) - 32px);
   overflow: hidden;
   display: flex;
@@ -96,7 +95,10 @@
   overflow-y: auto;
   overflow-x: hidden;
   min-height: 0;
-  flex: 1 1 0;
+}
+
+.cart-desktop--has-items .cart-items-scroll {
+  max-height: 160px;
 }
 
 .cart-list {

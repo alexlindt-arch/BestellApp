@@ -22,7 +22,9 @@ function syncCarts() {
   const delivery = RESTAURANT.deliveryPrice;
   const total = subtotal + delivery;
   const html = buildCartHTML(items, subtotal, delivery, total);
-  document.getElementById('cart-desktop').innerHTML = html;
+  const cartDesktop = document.getElementById('cart-desktop');
+  cartDesktop.innerHTML = html;
+  cartDesktop.classList.toggle('cart-desktop--has-items', items.length > 0);
   document.getElementById('cart-mobile-inner').innerHTML = html;
 }
 
