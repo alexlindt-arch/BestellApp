@@ -46,7 +46,8 @@
     overflow-wrap: break-word;
   }
 
-  .name-burger, .name-house { color: #363534; }
+  .name-burger { color: #E76C1F; }
+  .name-house  { color: #1A1A1A; }
 
   .restaurant-description {
     font-family: 'Palanquin', sans-serif;
