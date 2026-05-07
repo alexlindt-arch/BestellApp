@@ -177,7 +177,7 @@
   transition: transform 0.3s ease;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 901px) {
   .dish-image[src="assets/dishes/dish-beef-red-burger.jpg"] {
     transform: scale(1.7);
   }

@@ -58,14 +58,7 @@ function renderDishCard(dish) {
 }
 
 /* ===== CART HTML ===== */
-function syncCarts() {
-  const html = buildCartHTML();
-  document.getElementById('cart-desktop').innerHTML = html;
-  document.getElementById('cart-mobile-inner').innerHTML = html;
-}
-
-function buildCartHTML() {
-  const items = Object.values(cart);
+function buildCartHTML(items, subtotal, delivery, total) {
   if (items.length === 0) {
     return `
       <div class="cart-header">
@@ -79,7 +72,7 @@ function buildCartHTML() {
       <h2 class="cart-title">Your Basket</h2>
     </div>
     <div class="cart-items-scroll">${buildCartList(items)}</div>
-    ${buildCartFooter()}
+    ${buildCartFooter(subtotal, delivery, total)}
   `.trim();
 }
 
@@ -97,21 +90,10 @@ function buildEmptyCart() {
 }
 
 function buildCartList(items) {
-  return `<ul class="cart-list">${items.map(buildCartItem).join('')}</ul>`;
+  return `<ul class="cart-list">${items.map(buildCartItemHtml).join('')}</ul>`;
 }
 
-function buildCartItem(entry) {
-  const { dish, quantity } = entry;
-  const deleteIcon = `<svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M1 4h14M6 4V2h4v2M2 4l1 12h10L14 4" stroke="#E76C1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-
-  const cornerDelete = quantity > 1
-    ? `<button type="button" class="cart-item-delete cart-item-delete--corner" onclick="removeFromCart(${dish.id})" aria-label="Remove ${dish.name}">${deleteIcon}</button>`
-    : '';
-
-  const leftControl = quantity <= 1
-    ? `<button type="button" class="qty-btn-new qty-btn-new--as-delete" onclick="removeFromCart(${dish.id})" aria-label="Remove ${dish.name}">${deleteIcon}</button>`
-    : `<button type="button" class="qty-btn-new" onclick="updateQuantity(${dish.id}, -1)" aria-label="Decrease quantity">−</button>`;
-
+function cartItemTemplate(dish, quantity, cornerDelete, leftControl, price) {
   return `
     <li class="cart-item">
       <div class="cart-item-top">
@@ -124,16 +106,13 @@ function buildCartItem(entry) {
           <span class="qty-display-new">${quantity}</span>
           <button type="button" class="qty-btn-new" onclick="updateQuantity(${dish.id}, 1)" aria-label="Increase quantity">+</button>
         </div>
-        <span class="cart-item-price">${formatPrice(dish.price * quantity)}</span>
+        <span class="cart-item-price">${price}</span>
       </div>
     </li>
   `.trim();
 }
 
-function buildCartFooter() {
-  const subtotal = getCartTotal();
-  const delivery = RESTAURANT.deliveryPrice;
-  const total = subtotal + delivery;
+function buildCartFooter(subtotal, delivery, total) {
   return `
     <div class="cart-footer">
       <div class="cart-footer-divider"></div>

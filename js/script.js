@@ -1,11 +1,36 @@
 /* ===== STATE ===== */
 let cart = {};
+let _confirmationTimer = null;
 
 /* ===== INIT ===== */
 function init() {
   renderMenuSections();
   syncCarts();
   updateCartUI();
+}
+
+function syncCarts() {
+  const items = Object.values(cart);
+  const subtotal = getCartTotal();
+  const delivery = RESTAURANT.deliveryPrice;
+  const total = subtotal + delivery;
+  const html = buildCartHTML(items, subtotal, delivery, total);
+  document.getElementById('cart-desktop').innerHTML = html;
+  document.getElementById('cart-mobile-inner').innerHTML = html;
+}
+
+/* ===== CART ITEM HTML BUILDER ===== */
+function buildCartItemHtml(entry) {
+  const { dish, quantity } = entry;
+  const deleteIcon = `<svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M1 4h14M6 4V2h4v2M2 4l1 12h10L14 4" stroke="#E76C1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  const cornerDelete = quantity > 1
+    ? `<button type="button" class="cart-item-delete cart-item-delete--corner" onclick="removeFromCart(${dish.id})" aria-label="Remove ${dish.name}">${deleteIcon}</button>`
+    : '';
+  const leftControl = quantity <= 1
+    ? `<button type="button" class="qty-btn-new qty-btn-new--as-delete" onclick="removeFromCart(${dish.id})" aria-label="Remove ${dish.name}">${deleteIcon}</button>`
+    : `<button type="button" class="qty-btn-new" onclick="updateQuantity(${dish.id}, -1)" aria-label="Decrease quantity">−</button>`;
+  const price = formatPrice(dish.price * quantity);
+  return cartItemTemplate(dish, quantity, cornerDelete, leftControl, price);
 }
 
 /* ===== CART LOGIC ===== */
@@ -90,8 +115,6 @@ function syncAddButtons() {
     }
   });
 }
-
-let _confirmationTimer = null;
 
 function showOrderConfirmation() {
   const overlay = document.getElementById('order-confirmation');

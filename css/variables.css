@@ -34,3 +34,9 @@ body {
   line-height: 1.5;
   overflow-x: clip;
 }
+
+.page-wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  overflow-x: hidden;
+}
